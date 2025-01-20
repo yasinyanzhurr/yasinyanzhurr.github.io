@@ -95,6 +95,21 @@ body {
     width: 100%;
 }
 
+/* Dropdown specific styles - Tambahkan setelah .nav-links */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
 /* Navbar Dropdown Styles */
 .nav-links .dropdown {
     position: relative;
@@ -107,7 +122,9 @@ body {
     cursor: pointer;
 }
 
+/* Ini adalah bagian penting untuk dropdown menu */
 .dropdown-menu {
+    display: none; /* Penting: mengubah dari yang sebelumnya */
     position: absolute;
     top: 100%;
     left: 0;
@@ -115,11 +132,8 @@ body {
     min-width: 200px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
     z-index: 1000;
+    padding: 0.5rem 0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -128,8 +142,28 @@ body {
     transform: translateY(0);
 }
 
+/* Styling untuk dropdown items */
+.nav-item.dropdown.show .dropdown-menu {
+    display: block;
+}
+
 .dropdown-menu li {
     list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--light-background);
+    color: var(--primary-color);
 }
 
 .dropdown-menu a {
@@ -155,25 +189,21 @@ body {
 
 /* Mobile Responsive Dropdown */
 @media (max-width: 768px) {
-    .dropdown-menu {
+    .nav-item.dropdown .dropdown-menu {
         position: static;
-        background: var(--light-background);
         box-shadow: none;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        display: none;
-        width: 100%;
+        background: var(--light-background);
+        border-radius: 0;
     }
 
-    .dropdown.active .dropdown-menu {
+    /* .dropdown.active .dropdown-menu {
         display: block;
     }
 
     .dropdown-toggle {
         width: 100%;
         justify-content: space-between;
-    }
+    } */
 }
 
 /* Hero Section */

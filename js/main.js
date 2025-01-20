@@ -36,62 +36,51 @@ const utils = {
 
 class NavbarHandler {
     constructor() {
+        this.dropdowns = document.querySelectorAll('.nav-item.dropdown');
         this.init();
     }
 
     init() {
-        this.setupDropdown();
-        this.setupMobileMenu();
+        this.setupDropdownHandlers();
+        this.setupClickOutside();
     }
 
-    setupDropdown() {
-        const dropdowns = document.querySelectorAll('.dropdown');
+    setupDropdownHandlers() {
+        this.dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
 
-        dropdowns.forEach(dropdown => {
-            const toggle = dropdown.querySelector('.dropdown-toggle');
-
-            // For mobile devices
-            toggle.addEventListener('click', (e) => {
+            // Toggle dropdown on click
+            link.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
 
                 // Close other dropdowns
-                dropdowns.forEach(d => {
-                    if (d !== dropdown && d.classList.contains('active')) {
-                        d.classList.remove('active');
-                    }
-                });
+                this.closeAllDropdowns();
 
-                dropdown.classList.toggle('active');
+                // Toggle current dropdown
+                dropdown.classList.toggle('show');
             });
-
-            // For desktop hover
-            if (window.innerWidth > 768) {
-                dropdown.addEventListener('mouseenter', () => {
-                    dropdown.classList.add('active');
-                });
-
-                dropdown.addEventListener('mouseleave', () => {
-                    dropdown.classList.remove('active');
-                });
-            }
         });
     }
 
-    setupMobileMenu() {
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
+    closeAllDropdowns() {
+        this.dropdowns.forEach(dropdown => {
+            dropdown.classList.remove('show');
+        });
+    }
 
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            navToggle.querySelector('i').classList.toggle('fa-bars');
-            navToggle.querySelector('i').classList.toggle('fa-times');
+    setupClickOutside() {
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-item.dropdown')) {
+                this.closeAllDropdowns();
+            }
         });
     }
 }
 
-// Initialize navbar handler
+// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    new NavbarHandler();
+    const navbarHandler = new NavbarHandler();
 });
 
 // Main App Class
