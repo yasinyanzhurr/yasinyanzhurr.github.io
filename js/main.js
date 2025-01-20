@@ -34,6 +34,66 @@ const utils = {
     }
 };
 
+class NavbarHandler {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.setupDropdown();
+        this.setupMobileMenu();
+    }
+
+    setupDropdown() {
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+
+            // For mobile devices
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Close other dropdowns
+                dropdowns.forEach(d => {
+                    if (d !== dropdown && d.classList.contains('active')) {
+                        d.classList.remove('active');
+                    }
+                });
+
+                dropdown.classList.toggle('active');
+            });
+
+            // For desktop hover
+            if (window.innerWidth > 768) {
+                dropdown.addEventListener('mouseenter', () => {
+                    dropdown.classList.add('active');
+                });
+
+                dropdown.addEventListener('mouseleave', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+    }
+
+    setupMobileMenu() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.querySelector('i').classList.toggle('fa-bars');
+            navToggle.querySelector('i').classList.toggle('fa-times');
+        });
+    }
+}
+
+// Initialize navbar handler
+document.addEventListener('DOMContentLoaded', () => {
+    new NavbarHandler();
+});
+
 // Main App Class
 class PortfolioApp {
     constructor() {
