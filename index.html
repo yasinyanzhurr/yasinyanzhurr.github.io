@@ -9,6 +9,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+
+    <!-- Tambahkan di bagian <head> -->
+    <meta name="description"
+        content="Yasin - Professional Developer & Writer. Portfolio showcasing web development projects and technical writing.">
+    <meta name="keywords" content="web developer, portfolio, technical writer, frontend developer">
+    <meta name="author" content="Yasin">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Yasin's Portfolio | Professional Developer">
+    <meta property="og:description"
+        content="Professional developer showcasing web development projects and technical writing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yasinyanzhurr.github.io/">
+    <meta property="og:image" content="path/to/your/social-preview-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yasin's Portfolio | Professional Developer">
+    <meta name="twitter:description"
+        content="Professional developer showcasing web development projects and technical writing.">
+    <meta name="twitter:image" content="path/to/your/social-preview-image.jpg">
 </head>
 
 <body>
@@ -30,13 +52,13 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="animate-text">Hi, I'm Yasin</h1>
-                <h2 class="animate-text delay-1">Professional Developer & Writer</h2>
-                <p class="animate-text delay-2">Creating innovative solutions through code and sharing knowledge through
-                    writing.</p>
+                <h1 class="animate-text">Hello, I'm Yasin Yanzhurr</h1>
+                <h2 class="animate-text delay-1">Frontend Developer & UI/UX Enthusiast</h2>
+                <p class="animate-text delay-2">Passionate about creating beautiful, responsive, and user-friendly web
+                    applications. Specializing in modern web technologies and creative solutions.</p>
                 <div class="hero-buttons animate-text delay-3">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Connect</a>
                 </div>
             </div>
         </div>
@@ -52,25 +74,35 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a passionate developer focused on creating beautiful and functional web experiences. With
-                        expertise in modern web technologies, I help businesses and individuals bring their digital
-                        visions to life.</p>
+                    <p>As a Frontend Developer based in Indonesia, I combine technical expertise with creative design
+                        thinking to build exceptional digital experiences. With a strong foundation in web technologies
+                        and a keen eye for design, I create solutions that are both beautiful and functional.</p>
+
                     <div class="skills">
                         <div class="skill-item">
                             <i class="fab fa-html5"></i>
                             <span>HTML5</span>
+                            <div class="skill-level">90%</div>
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-css3-alt"></i>
                             <span>CSS3</span>
+                            <div class="skill-level">85%</div>
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-js"></i>
                             <span>JavaScript</span>
+                            <div class="skill-level">80%</div>
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-react"></i>
                             <span>React</span>
+                            <div class="skill-level">75%</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                            <div class="skill-level">85%</div>
                         </div>
                     </div>
                 </div>
@@ -79,32 +111,77 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
                 <h2>Featured Projects</h2>
                 <div class="separator"></div>
             </div>
-            <div class="project-grid">
-                <!-- Project cards will go here -->
-                <div class="project-card">
+            <div class="project-grid"> -->
+    <!-- Project cards will go here -->
+    <!-- <div class="project-card">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 1">
+                        <img src="images/project-1.jpg" alt="E-Commerce Website">
                     </div>
                     <div class="project-content">
-                        <h3>Project Title</h3>
-                        <p>Project description goes here. Brief overview of what the project does.</p>
+                        <h3>Modern E-Commerce Platform</h3>
+                        <p>A full-featured e-commerce platform built with React and Node.js. Features include user
+                            authentication, product management, and payment integration.</p>
                         <div class="project-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">Live Demo</a>
+                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>
                         </div>
                     </div>
                 </div>
-                <!-- Add more project cards as needed -->
-            </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project-2.jpg" alt="Task Management App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Management Dashboard</h3>
+                        <p>A responsive task management application with real-time updates, drag-and-drop functionality,
+                            and team collaboration features.</p>
+                        <div class="project-tags">
+                            <span>Vue.js</span>
+                            <span>Firebase</span>
+                            <span>CSS Grid</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">Live Demo</a>
+                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project-3.jpg" alt="Portfolio Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>A modern and responsive portfolio website showcasing my work and skills. Built with HTML5,
+                            CSS3, and JavaScript.</p>
+                        <div class="project-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">Live Demo</a>
+                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div> -->
+    <!-- Add more project cards as needed -->
+    <!-- </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Blog Section -->
     <section id="blog" class="blog">
@@ -112,33 +189,105 @@
             <div class="section-header">
                 <h2>Latest Articles</h2>
                 <div class="separator"></div>
+                <p>Insights and guides about development career and technology</p>
             </div>
+
             <div class="blog-grid">
-                <!-- Blog cards will go here -->
+                <!-- Blog Post 1: Introduction to Developer Career -->
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="https://via.placeholder.com/400x250" alt="Blog Post 1">
+                        <img src="images/developer-career.jpg" alt="Developer Career Path">
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">Jan 20, 2025</div>
-                        <h3>Modern Web Development Practices</h3>
-                        <p>Exploring the latest trends and best practices in web development...</p>
-                        <a href="#" class="read-more">Read More →</a>
+                        <div class="blog-date">January 20, 2025</div>
+                        <h3>Memahami Peran Developer di Era Digital</h3>
+                        <p>Mengenal lebih dalam tentang profesi developer, jenis-jenis developer, dan bagaimana memulai
+                            karir di bidang pengembangan software.</p>
+                        <div class="blog-preview">
+                            <h4>Highlights:</h4>
+                            <ul>
+                                <li>Apa itu Developer?</li>
+                                <li>Jenis-jenis Developer</li>
+                                <li>Skills yang Dibutuhkan</li>
+                                <li>Jalur Karir Developer</li>
+                            </ul>
+                        </div>
+                        <a href="blog/memahami-peran-developer.html" class="read-more">Baca Selengkapnya →</a>
                     </div>
                 </div>
-                <!-- Add more blog cards as needed -->
+
+                <!-- Blog Post 2: Benefits of Being a Developer -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/developer-benefits.jpg" alt="Benefits of Being a Developer">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">January 18, 2025</div>
+                        <h3>5 Manfaat Menjadi Developer di 2025</h3>
+                        <p>Mengapa karir sebagai developer sangat menjanjikan? Temukan berbagai keuntungan dan peluang
+                            yang bisa Anda dapatkan di industri teknologi.</p>
+                        <div class="blog-preview">
+                            <h4>Keuntungan Utama:</h4>
+                            <ul>
+                                <li>Prospek Karir yang Luas</li>
+                                <li>Fleksibilitas Kerja</li>
+                                <li>Penghasilan Kompetitif</li>
+                                <li>Pembelajaran Berkelanjutan</li>
+                            </ul>
+                        </div>
+                        <a href="blog/manfaat-menjadi-developer.html" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3: Career Impact -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/career-growth.jpg" alt="Career Growth in Tech">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">January 15, 2025</div>
+                        <h3>Dampak Karir Developer Terhadap Masa Depan</h3>
+                        <p>Bagaimana kemampuan programming dapat membuka pintu kesempatan dan mengakselerasi pertumbuhan
+                            karir Anda.</p>
+                        <div class="blog-preview">
+                            <h4>Topik Pembahasan:</h4>
+                            <ul>
+                                <li>Peluang Karir Global</li>
+                                <li>Pengembangan Skill</li>
+                                <li>Networking di Industri Tech</li>
+                                <li>Side Projects & Passive Income</li>
+                            </ul>
+                        </div>
+                        <a href="blog/dampak-karir-developer.html" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
                 <h2>Get in Touch</h2>
                 <div class="separator"></div>
             </div>
             <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Work Together</h3>
+                    <p>I'm always interested in hearing about new projects and opportunities. Whether you have a
+                        question or just want to say hi, I'll try my best to get back to you!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>email@example.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Indonesia</span>
+                        </div>
+                    </div>
+                </div>
                 <form class="contact-form">
                     <div class="form-group">
                         <input type="text" required placeholder="Your Name">
@@ -147,13 +296,16 @@
                         <input type="email" required placeholder="Your Email">
                     </div>
                     <div class="form-group">
+                        <input type="text" required placeholder="Subject">
+                    </div>
+                    <div class="form-group">
                         <textarea required placeholder="Your Message"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer>

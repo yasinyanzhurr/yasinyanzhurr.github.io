@@ -106,3 +106,32 @@ document.addEventListener('DOMContentLoaded', function () {
 // Dynamic copyright year
 document.querySelector('footer p').innerHTML =
     `&copy; ${new Date().getFullYear()} Yasin's Portfolio. All rights reserved.`;
+
+// Tambahkan di js/main.js
+
+// Dark Mode Implementation
+function initDarkMode() {
+    const darkModeToggle = document.createElement('button');
+    darkModeToggle.classList.add('dark-mode-toggle');
+    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    document.querySelector('.navbar .container').appendChild(darkModeToggle);
+
+    // Check user preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        darkModeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+}
+
+// Initialize dark mode
+initDarkMode();
