@@ -135,3 +135,52 @@ function initDarkMode() {
 
 // Initialize dark mode
 initDarkMode();
+
+// Add to main.js
+document.addEventListener('DOMContentLoaded', function () {
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            const category = button.dataset.category;
+
+            blogCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+
+// js/newsletter.js
+const supabaseUrl = 'YOUR_SUPABASE_URL'
+const supabaseKey = 'YOUR_SUPABASE_KEY'
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const email = document.getElementById('email').value
+
+    try {
+        const { data, error } = await supabase
+            .from('subscribers')
+            .insert([{ email: email, subscribed_at: new Date() }])
+
+        if (error) throw error
+
+        alert('Thank you for subscribing!')
+        document.getElementById('email').value = ''
+    } catch (error) {
+        alert('Error subscribing. Please try again.')
+    }
+})

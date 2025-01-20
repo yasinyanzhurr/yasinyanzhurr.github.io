@@ -35,18 +35,15 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">YZ</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact" class="nav-btn">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+            <li><a href="/blog/tech">Technology & Development</a></li>
+            <li><a href="/blog/mathematics">Mathematics</a></li>
+            <li><a href="/blog/languages">Language Learning</a></li>
+            <li><a href="/blog/coffee">Coffee & Brewing</a></li>
+        </ul>
+    </li>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -189,78 +186,114 @@
             <div class="section-header">
                 <h2>Latest Articles</h2>
                 <div class="separator"></div>
-                <p>Insights and guides about development career and technology</p>
+            </div>
+
+            <!-- Category Navigation -->
+            <div class="blog-categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="tech">Technology</button>
+                <button class="category-btn" data-category="math">Mathematics</button>
+                <button class="category-btn" data-category="lang">Languages</button>
+                <button class="category-btn" data-category="coffee">Coffee</button>
             </div>
 
             <div class="blog-grid">
-                <!-- Blog Post 1: Introduction to Developer Career -->
-                <div class="blog-card">
+                <!-- Technology Category -->
+                <div class="blog-card" data-category="tech">
                     <div class="blog-image">
-                        <img src="images/developer-career.jpg" alt="Developer Career Path">
+                        <img src="images/tech/developer-career.jpg" alt="Developer Career">
+                        <div class="category-tag">Technology</div>
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">January 20, 2025</div>
+                        <div class="blog-meta">
+                            <span class="blog-date">20 Jan 2025</span>
+                            <span class="read-time">5 min read</span>
+                        </div>
                         <h3>Memahami Peran Developer di Era Digital</h3>
-                        <p>Mengenal lebih dalam tentang profesi developer, jenis-jenis developer, dan bagaimana memulai
-                            karir di bidang pengembangan software.</p>
-                        <div class="blog-preview">
-                            <h4>Highlights:</h4>
-                            <ul>
-                                <li>Apa itu Developer?</li>
-                                <li>Jenis-jenis Developer</li>
-                                <li>Skills yang Dibutuhkan</li>
-                                <li>Jalur Karir Developer</li>
-                            </ul>
+                        <p>Eksplorasi mendalam tentang karir sebagai developer dan peluangnya di masa depan.</p>
+                        <div class="blog-tags">
+                            <span>#programming</span>
+                            <span>#career</span>
+                            <span>#technology</span>
                         </div>
-                        <a href="blog/memahami-peran-developer.html" class="read-more">Baca Selengkapnya →</a>
+                        <a href="blog/tech/memahami-peran-developer.html" class="read-more">Read More →</a>
                     </div>
                 </div>
 
-                <!-- Blog Post 2: Benefits of Being a Developer -->
-                <div class="blog-card">
+                <!-- Mathematics Category -->
+                <div class="blog-card" data-category="math">
                     <div class="blog-image">
-                        <img src="images/developer-benefits.jpg" alt="Benefits of Being a Developer">
+                        <img src="images/math/calculus-basics.jpg" alt="Calculus Basics">
+                        <div class="category-tag">Mathematics</div>
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">January 18, 2025</div>
-                        <h3>5 Manfaat Menjadi Developer di 2025</h3>
-                        <p>Mengapa karir sebagai developer sangat menjanjikan? Temukan berbagai keuntungan dan peluang
-                            yang bisa Anda dapatkan di industri teknologi.</p>
-                        <div class="blog-preview">
-                            <h4>Keuntungan Utama:</h4>
-                            <ul>
-                                <li>Prospek Karir yang Luas</li>
-                                <li>Fleksibilitas Kerja</li>
-                                <li>Penghasilan Kompetitif</li>
-                                <li>Pembelajaran Berkelanjutan</li>
-                            </ul>
+                        <div class="blog-meta">
+                            <span class="blog-date">19 Jan 2025</span>
+                            <span class="read-time">7 min read</span>
                         </div>
-                        <a href="blog/manfaat-menjadi-developer.html" class="read-more">Baca Selengkapnya →</a>
+                        <h3>Memahami Kalkulus Dasar dengan Mudah</h3>
+                        <p>Panduan praktis memahami konsep dasar kalkulus untuk siswa SMA.</p>
+                        <div class="blog-tags">
+                            <span>#mathematics</span>
+                            <span>#calculus</span>
+                            <span>#education</span>
+                        </div>
+                        <a href="blog/math/kalkulus-dasar.html" class="read-more">Read More →</a>
                     </div>
                 </div>
 
-                <!-- Blog Post 3: Career Impact -->
-                <div class="blog-card">
+                <!-- Language Learning Category -->
+                <div class="blog-card" data-category="lang">
                     <div class="blog-image">
-                        <img src="images/career-growth.jpg" alt="Career Growth in Tech">
+                        <img src="images/lang/arabic-grammar.jpg" alt="Arabic Grammar">
+                        <div class="category-tag">Languages</div>
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">January 15, 2025</div>
-                        <h3>Dampak Karir Developer Terhadap Masa Depan</h3>
-                        <p>Bagaimana kemampuan programming dapat membuka pintu kesempatan dan mengakselerasi pertumbuhan
-                            karir Anda.</p>
-                        <div class="blog-preview">
-                            <h4>Topik Pembahasan:</h4>
-                            <ul>
-                                <li>Peluang Karir Global</li>
-                                <li>Pengembangan Skill</li>
-                                <li>Networking di Industri Tech</li>
-                                <li>Side Projects & Passive Income</li>
-                            </ul>
+                        <div class="blog-meta">
+                            <span class="blog-date">18 Jan 2025</span>
+                            <span class="read-time">6 min read</span>
                         </div>
-                        <a href="blog/dampak-karir-developer.html" class="read-more">Baca Selengkapnya →</a>
+                        <h3>Dasar-dasar Nahwu dalam Bahasa Arab</h3>
+                        <p>Pengenalan struktur tata bahasa Arab untuk pemula.</p>
+                        <div class="blog-tags">
+                            <span>#arabic</span>
+                            <span>#grammar</span>
+                            <span>#language</span>
+                        </div>
+                        <a href="blog/lang/dasar-nahwu.html" class="read-more">Read More →</a>
                     </div>
                 </div>
+
+                <!-- Coffee Category -->
+                <div class="blog-card" data-category="coffee">
+                    <div class="blog-image">
+                        <img src="images/coffee/brewing-methods.jpg" alt="Coffee Brewing">
+                        <div class="category-tag">Coffee</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">17 Jan 2025</span>
+                            <span class="read-time">4 min read</span>
+                        </div>
+                        <h3>Manual Brewing: Dari Pemula Hingga Ahli</h3>
+                        <p>Panduan lengkap berbagai metode manual brewing untuk pecinta kopi.</p>
+                        <div class="blog-tags">
+                            <span>#coffee</span>
+                            <span>#brewing</span>
+                            <span>#barista</span>
+                        </div>
+                        <a href="blog/coffee/manual-brewing-guide.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Share Buttons -->
+            <div class="share-buttons">
+                <h4>Share this article:</h4>
+                <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
     </section>
