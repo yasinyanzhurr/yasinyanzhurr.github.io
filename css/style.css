@@ -111,7 +111,7 @@ body {
 }
 
 /* Navbar Dropdown Styles */
-.nav-links .dropdown {
+/* .nav-links .dropdown {
     position: relative;
 }
 
@@ -120,7 +120,7 @@ body {
     align-items: center;
     gap: 5px;
     cursor: pointer;
-}
+} */
 
 /* Ini adalah bagian penting untuk dropdown menu */
 .dropdown-menu {
