@@ -1,0 +1,42 @@
+/* css/style.css */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #f9f9f9;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: var(--primary-color);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.content {
+    padding: 2rem 0;
+}
+
+.blog-section {
+    background: var(--secondary-color);
+    padding: 2rem 0;
+}
+
+.blog-post {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
