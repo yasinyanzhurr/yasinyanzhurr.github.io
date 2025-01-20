@@ -1,186 +1,228 @@
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', function () {
-    // Loading animation
-    const loader = document.createElement('div');
-    loader.classList.add('loading');
-    loader.innerHTML = '<div class="loading-spinner"></div>';
-    document.body.appendChild(loader);
+// Utility functions
+const utils = {
+    currentTime: '2025-01-20 16:08:08',
+    currentUser: 'yasinyanzhurr',
 
-    // Remove loader after page loads
-    window.addEventListener('load', function () {
-        loader.remove();
-    });
+    // Debounce function untuk optimisasi performa
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    },
 
-    // Smooth scrolling for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll <= 0) {
-            navbar.classList.remove('scroll-up');
-            return;
-        }
-
-        if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
-            navbar.classList.remove('scroll-up');
-            navbar.classList.add('scroll-down');
-        } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
-            navbar.classList.remove('scroll-down');
-            navbar.classList.add('scroll-up');
-        }
-        lastScroll = currentScroll;
-    });
-
-    // Mobile menu toggle
-    const mobileMenuButton = document.createElement('div');
-    mobileMenuButton.classList.add('mobile-menu');
-    mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
-
-    const navContainer = document.querySelector('.navbar .container');
-    const navLinks = document.querySelector('.nav-links');
-
-    navContainer.insertBefore(mobileMenuButton, navLinks);
-
-    mobileMenuButton.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileMenuButton.querySelector('i').classList.toggle('fa-bars');
-        mobileMenuButton.querySelector('i').classList.toggle('fa-times');
-    });
-
-    // Form submission
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Add loading state to submit button
-            const submitButton = this.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
-
-            // Simulate form submission (replace with actual form submission)
-            setTimeout(() => {
-                alert('Thank you for your message! I will get back to you soon.');
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-                contactForm.reset();
-            }, 1500);
-        });
-    }
-
-    // Animate elements on scroll
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.project-card, .blog-card, .skill-item').forEach(el => {
-        observer.observe(el);
-    });
-});
-
-// Dynamic copyright year
-document.querySelector('footer p').innerHTML =
-    `&copy; ${new Date().getFullYear()} Yasin's Portfolio. All rights reserved.`;
-
-// Tambahkan di js/main.js
-
-// Dark Mode Implementation
-function initDarkMode() {
-    const darkModeToggle = document.createElement('button');
-    darkModeToggle.classList.add('dark-mode-toggle');
-    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    document.querySelector('.navbar .container').appendChild(darkModeToggle);
-
-    // Check user preference
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.body.classList.add('dark-mode');
-        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    }
-
-    darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const isDark = document.body.classList.contains('dark-mode');
-        darkModeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-}
-
-// Initialize dark mode
-initDarkMode();
-
-// Add to main.js
-document.addEventListener('DOMContentLoaded', function () {
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const blogCards = document.querySelectorAll('.blog-card');
-
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
-
-            const category = button.dataset.category;
-
-            blogCards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
+    // Lazy loading images
+    lazyLoadImages() {
+        const images = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
                 }
             });
         });
-    });
+
+        images.forEach(img => imageObserver.observe(img));
+    }
+};
+
+// Main App Class
+class PortfolioApp {
+    constructor() {
+        this.navbar = document.querySelector('.navbar');
+        this.lastScroll = 0;
+        this.isLoading = true;
+        this.init();
+    }
+
+    init() {
+        this.setupLoader();
+        this.setupEventListeners();
+        this.setupIntersectionObserver();
+        this.initializeBlogFilters();
+        this.initializeDarkMode();
+        utils.lazyLoadImages();
+    }
+
+    setupLoader() {
+        const loader = document.createElement('div');
+        loader.classList.add('loading');
+        loader.innerHTML = '<div class="loading-spinner"></div>';
+        document.body.appendChild(loader);
+
+        window.addEventListener('load', () => {
+            this.isLoading = false;
+            loader.remove();
+        });
+    }
+
+    setupEventListeners() {
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Optimized scroll handler
+        window.addEventListener('scroll', utils.debounce(() => {
+            this.handleScroll();
+        }, 10));
+
+        // Mobile menu
+        this.setupMobileMenu();
+
+        // Form handling
+        this.setupContactForm();
+    }
+
+    handleScroll() {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll <= 0) {
+            this.navbar.classList.remove('scroll-up');
+            return;
+        }
+
+        if (currentScroll > this.lastScroll && !this.navbar.classList.contains('scroll-down')) {
+            this.navbar.classList.remove('scroll-up');
+            this.navbar.classList.add('scroll-down');
+        } else if (currentScroll < this.lastScroll && this.navbar.classList.contains('scroll-down')) {
+            this.navbar.classList.remove('scroll-down');
+            this.navbar.classList.add('scroll-up');
+        }
+        this.lastScroll = currentScroll;
+    }
+
+    setupMobileMenu() {
+        const mobileMenuButton = document.createElement('div');
+        mobileMenuButton.classList.add('mobile-menu');
+        mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
+
+        const navContainer = document.querySelector('.navbar .container');
+        const navLinks = document.querySelector('.nav-links');
+
+        navContainer.insertBefore(mobileMenuButton, navLinks);
+
+        mobileMenuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuButton.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    }
+
+    setupContactForm() {
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', this.handleFormSubmit.bind(this));
+        }
+    }
+
+    async handleFormSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+
+        try {
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+
+            // Simulasi pengiriman form (ganti dengan API call sebenarnya)
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            alert('Thank you for your message! I will get back to you soon.');
+            form.reset();
+        } catch (error) {
+            alert('Error sending message. Please try again.');
+        } finally {
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
+    }
+
+    setupIntersectionObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card, .blog-card, .skill-item')
+            .forEach(el => observer.observe(el));
+    }
+
+    initializeBlogFilters() {
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.dataset.category;
+
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                blogCards.forEach(card => {
+                    card.style.display =
+                        (category === 'all' || card.dataset.category === category)
+                            ? 'block'
+                            : 'none';
+                });
+            });
+        });
+    }
+
+    initializeDarkMode() {
+        const darkModeToggle = document.createElement('button');
+        darkModeToggle.classList.add('dark-mode-toggle');
+        darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            darkModeToggle.innerHTML = isDark ?
+                '<i class="fas fa-sun"></i>' :
+                '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        document.querySelector('.navbar .container').appendChild(darkModeToggle);
+    }
+}
+
+// Initialize app
+document.addEventListener('DOMContentLoaded', () => {
+    new PortfolioApp();
 });
 
-
-// js/newsletter.js
-const supabaseUrl = 'YOUR_SUPABASE_URL'
-const supabaseKey = 'YOUR_SUPABASE_KEY'
-const supabase = createClient(supabaseUrl, supabaseKey)
-
-document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
-    e.preventDefault()
-    const email = document.getElementById('email').value
-
-    try {
-        const { data, error } = await supabase
-            .from('subscribers')
-            .insert([{ email: email, subscribed_at: new Date() }])
-
-        if (error) throw error
-
-        alert('Thank you for subscribing!')
-        document.getElementById('email').value = ''
-    } catch (error) {
-        alert('Error subscribing. Please try again.')
-    }
-})
+// Update copyright year
+document.querySelector('footer p').innerHTML =
+    `&copy; ${new Date().getFullYear()} Yasin's Portfolio. All rights reserved.`;

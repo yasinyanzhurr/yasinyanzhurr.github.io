@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yasin's Portfolio | Professional Developer</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
@@ -31,19 +31,38 @@
     <meta name="twitter:description"
         content="Professional developer showcasing web development projects and technical writing.">
     <meta name="twitter:image" content="path/to/your/social-preview-image.jpg">
+
+    <!-- Tambahkan di head -->
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="canonical" href="https://yasinyanzhurr.github.io/">
+    <meta name="google-site-verification" content="your-verification-code">
 </head>
 
 <body>
     <!-- Navbar -->
-    <li class="nav-item dropdown">
-        <a href="#" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
-        <ul class="dropdown-menu">
-            <li><a href="/blog/tech">Technology & Development</a></li>
-            <li><a href="/blog/mathematics">Mathematics</a></li>
-            <li><a href="/blog/languages">Language Learning</a></li>
-            <li><a href="/blog/coffee">Coffee & Brewing</a></li>
-        </ul>
-    </li>
+    <!-- Tambahkan setelah <body> dan sebelum Hero Section -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Yasin's Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/blog/tech">Technology & Development</a></li>
+                        <li><a href="/blog/mathematics">Mathematics</a></li>
+                        <li><a href="/blog/languages">Language Learning</a></li>
+                        <li><a href="/blog/coffee">Coffee & Brewing</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -180,15 +199,15 @@
         </div>
     </section> -->
 
-    <!-- Blog Section -->
+    <!-- Update pada blog section -->
     <section id="blog" class="blog">
         <div class="container">
             <div class="section-header">
                 <h2>Latest Articles</h2>
                 <div class="separator"></div>
+                <p>Exploring Technology, Mathematics, Languages, and Coffee</p>
             </div>
 
-            <!-- Category Navigation -->
             <div class="blog-categories">
                 <button class="category-btn active" data-category="all">All</button>
                 <button class="category-btn" data-category="tech">Technology</button>
@@ -198,10 +217,13 @@
             </div>
 
             <div class="blog-grid">
+                <!-- Blog cards tetap sama -->
                 <!-- Technology Category -->
                 <div class="blog-card" data-category="tech">
+                    <!-- Tambahkan di dalam setiap blog-image div -->
                     <div class="blog-image">
-                        <img src="images/tech/developer-career.jpg" alt="Developer Career">
+                        <div class="image-loader"></div>
+                        <img src="images/tech/developer-career.jpg" alt="Developer Career" loading="lazy">
                         <div class="category-tag">Technology</div>
                     </div>
                     <div class="blog-content">
@@ -223,6 +245,7 @@
                 <!-- Mathematics Category -->
                 <div class="blog-card" data-category="math">
                     <div class="blog-image">
+                        <div class="image-loader"></div>
                         <img src="images/math/calculus-basics.jpg" alt="Calculus Basics">
                         <div class="category-tag">Mathematics</div>
                     </div>
@@ -245,6 +268,7 @@
                 <!-- Language Learning Category -->
                 <div class="blog-card" data-category="lang">
                     <div class="blog-image">
+                        <div class="image-loader"></div>
                         <img src="images/lang/arabic-grammar.jpg" alt="Arabic Grammar">
                         <div class="category-tag">Languages</div>
                     </div>
@@ -267,6 +291,7 @@
                 <!-- Coffee Category -->
                 <div class="blog-card" data-category="coffee">
                     <div class="blog-image">
+                        <div class="image-loader"></div>
                         <img src="images/coffee/brewing-methods.jpg" alt="Coffee Brewing">
                         <div class="category-tag">Coffee</div>
                     </div>
@@ -344,12 +369,18 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                <div class="footer-info">
+                    <h3>Yasin's Portfolio</h3>
+                    <p>Frontend Developer & Technical Writer</p>
                 </div>
-                <p>&copy; 2025 Yasin's Portfolio. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Yasin's Portfolio. All rights reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
