@@ -4,87 +4,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yasin's Professional Portfolio</title>
+    <title>Yasin's Portfolio | Professional Developer</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container hero-content">
-            <h1 class="hero-title">Welcome to My Professional Space</h1>
-            <p class="hero-subtitle">Developer | Writer | Tech Enthusiast</p>
-            <a href="#contact" class="btn btn-primary">Get in Touch</a>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">YZ</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact" class="nav-btn">Contact</a></li>
+            </ul>
         </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-text">Hi, I'm Yasin</h1>
+                <h2 class="animate-text delay-1">Professional Developer & Writer</h2>
+                <p class="animate-text delay-2">Creating innovative solutions through code and sharing knowledge through
+                    writing.</p>
+                <div class="hero-buttons animate-text delay-3">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shape"></div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">What I Do</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-code feature-icon"></i>
-                    <h3>Web Development</h3>
-                    <p>Creating modern and responsive websites using the latest technologies.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-pencil-alt feature-icon"></i>
-                    <h3>Technical Writing</h3>
-                    <p>Sharing knowledge and insights through detailed technical articles.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-laptop-code feature-icon"></i>
-                    <h3>Project Development</h3>
-                    <p>Building innovative solutions for real-world problems.</p>
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="separator"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate developer focused on creating beautiful and functional web experiences. With
+                        expertise in modern web technologies, I help businesses and individuals bring their digital
+                        visions to life.</p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section class="blog-section" id="blog">
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Latest Articles</h2>
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <img src="images/placeholder.jpg" alt="Blog Post" class="blog-image">
-                    <div class="blog-content">
-                        <span class="blog-date">January 20, 2025</span>
-                        <h3>Getting Started with Web Development</h3>
-                        <p>Learn the fundamentals of modern web development...</p>
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="separator"></div>
+            </div>
+            <div class="project-grid">
+                <!-- Project cards will go here -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300" alt="Project 1">
                     </div>
-                </article>
+                    <div class="project-content">
+                        <h3>Project Title</h3>
+                        <p>Project description goes here. Brief overview of what the project does.</p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Articles</h2>
+                <div class="separator"></div>
+            </div>
+            <div class="blog-grid">
+                <!-- Blog cards will go here -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://via.placeholder.com/400x250" alt="Blog Post 1">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">Jan 20, 2025</div>
+                        <h3>Modern Web Development Practices</h3>
+                        <p>Exploring the latest trends and best practices in web development...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
                 <!-- Add more blog cards as needed -->
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" class="form-input" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-input" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-input" placeholder="Your Message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <div class="separator"></div>
+            </div>
+            <div class="contact-content">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" required placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <textarea required placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Yasin's Portfolio. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p>&copy; 2025 Yasin's Portfolio. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
