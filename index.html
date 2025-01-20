@@ -4,33 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yasin's Website</title>
+    <title>Yasin's Professional Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>Welcome to My Website</h1>
-            <p>A Place for My Thoughts and Ideas</p>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1 class="hero-title">Welcome to My Professional Space</h1>
+            <p class="hero-subtitle">Developer | Writer | Tech Enthusiast</p>
+            <a href="#contact" class="btn btn-primary">Get in Touch</a>
         </div>
-    </header>
+    </section>
 
-    <div class="content container">
-        <h2>About Me</h2>
-        <p>Hello! This is my personal website where I share my thoughts and experiences.</p>
-    </div>
-
-    <div class="blog-section">
+    <!-- Features Section -->
+    <section class="features" id="features">
         <div class="container">
-            <h2>Latest Blog Posts</h2>
-            <div class="blog-post">
-                <h3>My First Blog Post</h3>
-                <p>This is the beginning of my blogging journey...</p>
-                <small>Posted on: 2025-01-20</small>
+            <h2 class="section-title">What I Do</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-code feature-icon"></i>
+                    <h3>Web Development</h3>
+                    <p>Creating modern and responsive websites using the latest technologies.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-pencil-alt feature-icon"></i>
+                    <h3>Technical Writing</h3>
+                    <p>Sharing knowledge and insights through detailed technical articles.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-laptop-code feature-icon"></i>
+                    <h3>Project Development</h3>
+                    <p>Building innovative solutions for real-world problems.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="container">
+            <h2 class="section-title">Latest Articles</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="images/placeholder.jpg" alt="Blog Post" class="blog-image">
+                    <div class="blog-content">
+                        <span class="blog-date">January 20, 2025</span>
+                        <h3>Getting Started with Web Development</h3>
+                        <p>Learn the fundamentals of modern web development...</p>
+                    </div>
+                </article>
+                <!-- Add more blog cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-input" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Yasin's Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
