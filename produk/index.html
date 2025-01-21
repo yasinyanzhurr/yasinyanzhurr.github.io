@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk Digital | Yasin's Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/products.css">
+</head>
+
+<body>
+    <!-- Include navbar -->
+
+    <main class="products-page">
+        <div class="products-header">
+            <h1>Produk Digital</h1>
+            <p>Koleksi produk digital berkualitas untuk pembelajaran</p>
+        </div>
+
+        <div class="products-filter">
+            <button class="filter-btn active" data-category="all">Semua</button>
+            <button class="filter-btn" data-category="matematika">Matematika</button>
+            <button class="filter-btn" data-category="bahasa">Bahasa</button>
+            <button class="filter-btn" data-category="bisnis">Bisnis</button>
+        </div>
+
+        <div class="product-grid">
+            <!-- Produk Matematika -->
+            <article class="product-card" data-category="matematika">
+                <div class="product-image">
+                    <img src="../images/products/math-bundle.jpg" alt="Bundle Matematika">
+                    <div class="product-badge">Bestseller</div>
+                </div>
+                <div class="product-content">
+                    <h3>Complete Math Bundle</h3>
+                    <p>Paket lengkap pembelajaran matematika SD-SMA</p>
+                    <div class="product-features">
+                        <span><i class="fas fa-book"></i> 500+ Halaman</span>
+                        <span><i class="fas fa-video"></i> 100 Video</span>
+                        <span><i class="fas fa-tasks"></i> Quiz Interaktif</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="original-price">Rp 599.000</span>
+                        <span class="price">Rp 399.000</span>
+                        <button class="buy-btn">Beli Sekarang</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Produk TOEFL -->
+            <article class="product-card" data-category="bahasa">
+                <div class="product-image">
+                    <img src="../images/products/toefl-prep.jpg" alt="TOEFL Preparation">
+                    <div class="product-badge">New</div>
+                </div>
+                <div class="product-content">
+                    <h3>TOEFL Success Package</h3>
+                    <p>Persiapan TOEFL lengkap dengan native speaker</p>
+                    <div class="product-features">
+                        <span><i class="fas fa-headphones"></i> Audio Lessons</span>
+                        <span><i class="fas fa-book"></i> Practice Tests</span>
+                        <span><i class="fas fa-comments"></i> Speaking Practice</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">Rp 499.000</span>
+                        <button class="buy-btn">Beli Sekarang</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+</body>
+
+</html>

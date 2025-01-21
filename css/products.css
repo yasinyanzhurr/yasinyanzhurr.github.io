@@ -1,0 +1,54 @@
+/* Products Page Styling */
+.products-page {
+    padding-top: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.products-header {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.products-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--primary-color);
+    background: none;
+    color: var(--text-dark);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+
+.product-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary-color);
+    color: var(--text-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.product-features {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}

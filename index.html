@@ -1,389 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
+    <!-- Meta tags untuk SEO dan responsive design -->
     <meta charset="UTF-8">
+    <!-- Viewport untuk memastikan tampilan responsif di berbagai perangkat -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yasin's Portfolio | Professional Developer</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    <!-- Meta description untuk SEO, penting untuk membuat deskripsi yang menarik dan informatif -->
+    <meta name="description"
+        content="Blog pribadi Yasin - Berbagi pengalaman dan pengetahuan tentang pendidikan matematika, teknologi, bahasa Arab & Inggris, serta bisnis.">
+    <!-- Keywords untuk membantu SEO -->
+    <meta name="keywords"
+        content="guru matematika, teknologi pendidikan, TOEFL, bahasa arab, nahwu shorof, bisnis cafe, pengalaman bisnis">
+    <meta name="author" content="Yasin">
+    <!-- Open Graph tags untuk tampilan yang lebih baik saat dibagikan di media sosial -->
+    <meta property="og:title" content="Yasin's Blog | Berbagi Pengalaman & Pengetahuan">
+    <meta property="og:description"
+        content="Blog pribadi Yasin - Berbagi pengalaman dan pengetahuan tentang pendidikan matematika, teknologi, bahasa Arab & Inggris, serta bisnis.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yasinyanzhurr.github.io">
+
+    <!-- Judul halaman yang akan muncul di tab browser -->
+    <title>Yasin's Blog | Berbagi Pengalaman & Pengetahuan</title>
+
+    <!-- Font dari Google Fonts - Poppins untuk heading dan Merriweather untuk body text -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap"
         rel="stylesheet">
 
-    <!-- Tambahkan di bagian <head> -->
-    <meta name="description"
-        content="Yasin - Professional Developer & Writer. Portfolio showcasing web development projects and technical writing.">
-    <meta name="keywords" content="web developer, portfolio, technical writer, frontend developer">
-    <meta name="author" content="Yasin">
-    <meta name="robots" content="index, follow">
+    <!-- Font Awesome untuk ikon - versi 6.0.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Yasin's Portfolio | Professional Developer">
-    <meta property="og:description"
-        content="Professional developer showcasing web development projects and technical writing.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yasinyanzhurr.github.io/">
-    <meta property="og:image" content="path/to/your/social-preview-image.jpg">
+    <!-- File CSS kustom -->
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Yasin's Portfolio | Professional Developer">
-    <meta name="twitter:description"
-        content="Professional developer showcasing web development projects and technical writing.">
-    <meta name="twitter:image" content="path/to/your/social-preview-image.jpg">
-
-    <!-- Tambahkan di head -->
-    <meta name="theme-color" content="#3b82f6">
-    <link rel="canonical" href="https://yasinyanzhurr.github.io/">
-    <meta name="google-site-verification" content="your-verification-code">
+    <!-- Tambahkan di bagian head -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=[YOUR-GA-ID]"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', '[YOUR-GA-ID]');
+    </script>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <!-- Tambahkan setelah <body> dan sebelum Hero Section -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="/" class="logo">Yasin's Portfolio</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link">
-                        Blog <i class="fas fa-chevron-down"></i>
-                    </a>
+    <!-- Progress bar untuk menunjukkan progress scroll halaman -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Header dengan navigasi fixed -->
+    <header>
+        <!-- Modifikasi pada bagian navbar -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>Yasin's Blog</h1>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#beranda">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#matematika">Matematika <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/blog/tech">Technology & Development</a></li>
-                        <li><a href="/blog/mathematics">Mathematics</a></li>
-                        <li><a href="/blog/languages">Language Learning</a></li>
-                        <li><a href="/blog/coffee">Coffee & Brewing</a></li>
+                        <li><a href="#matematika-sd">SD</a></li>
+                        <li><a href="#matematika-smp">SMP</a></li>
+                        <li><a href="#matematika-sma">SMA</a></li>
+                        <li><a href="#matematika-lanjut">Matematika Lanjut</a></li>
                     </ul>
                 </li>
+                <li><a href="#teknologi">Teknologi</a></li>
+                <li class="dropdown">
+                    <a href="#bahasa">Bahasa <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#bahasa-inggris">Bahasa Inggris</a></li>
+                        <li><a href="#bahasa-arab">Bahasa Arab</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#wirausaha">Wirausaha <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#pemula">Pengusaha Pemula</a></li>
+                        <li><a href="#akuntansi">Akuntansi Dasar</a></li>
+                    </ul>
+                </li>
+                <li><a href="#produk">Produk Digital</a></li>
             </ul>
-        </div>
-    </nav>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <!-- <i class="fas fa-moon"></i> -->
+            </button>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="animate-text">Hello, I'm Yasin Yanzhurr</h1>
-                <h2 class="animate-text delay-1">Frontend Developer & UI/UX Enthusiast</h2>
-                <p class="animate-text delay-2">Passionate about creating beautiful, responsive, and user-friendly web
-                    applications. Specializing in modern web technologies and creative solutions.</p>
-                <div class="hero-buttons animate-text delay-3">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Let's Connect</a>
-                </div>
-            </div>
-        </div>
-        <div class="hero-shape"></div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>About Me</h2>
-                <div class="separator"></div>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>As a Frontend Developer based in Indonesia, I combine technical expertise with creative design
-                        thinking to build exceptional digital experiences. With a strong foundation in web technologies
-                        and a keen eye for design, I create solutions that are both beautiful and functional.</p>
-
-                    <div class="skills">
-                        <div class="skill-item">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
-                            <div class="skill-level">90%</div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
-                            <div class="skill-level">85%</div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-js"></i>
-                            <span>JavaScript</span>
-                            <div class="skill-level">80%</div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
-                            <div class="skill-level">75%</div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git</span>
-                            <div class="skill-level">85%</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Hero Section - Bagian utama halaman -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Selamat Datang di Blog Saya</h1>
+            <p>Berbagi pengalaman dan pengetahuan dari seorang guru matematika yang passionate dalam teknologi, bahasa,
+                dan bisnis.</p>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <!-- <section id="projects" class="projects">
-        <div class="container">
+    <!-- Konten Utama -->
+    <main>
+        <!-- Kategori Matematika -->
+        <section id="matematika" class="category-section">
             <div class="section-header">
-                <h2>Featured Projects</h2>
-                <div class="separator"></div>
+                <h2>Matematika</h2>
+                <p>Eksplorasi dunia matematika dari tingkat dasar hingga lanjut</p>
             </div>
-            <div class="project-grid"> -->
-    <!-- Project cards will go here -->
-    <!-- <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/project-1.jpg" alt="E-Commerce Website">
-                    </div>
-                    <div class="project-content">
-                        <h3>Modern E-Commerce Platform</h3>
-                        <p>A full-featured e-commerce platform built with React and Node.js. Features include user
-                            authentication, product management, and payment integration.</p>
-                        <div class="project-tags">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">Live Demo</a>
-                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>
-                        </div>
-                    </div>
+
+            <!-- Sub-kategori Matematika SD -->
+            <section id="matematika-sd" class="sub-category">
+                <h3>Matematika SD</h3>
+                <div class="article-grid">
+                    <article class="article-card">
+                        <a href="blog/matematika/sd/pecahan-dasar.html" target="_blank" class="article-link">
+                            <div class="article-image">
+                                <img src="images/matematika/sd/pecahan-dasar.jpg" alt="Belajar Pecahan" loading="lazy">
+                            </div>
+
+                            <div class="article-content">
+                                <span class="article-category">Matematika SD</span>
+                                <h3>Belajar Pecahan dengan Cara Menyenangkan</h3>
+                                <p class="article-excerpt">
+                                    Mari belajar pecahan dengan metode yang menyenangkan menggunakan contoh kehidupan
+                                    sehari-hari...
+                                </p>
+                                <div class="article-meta">
+                                    <span class="date"><i class="far fa-calendar"></i> 21 Jan 2025</span>
+                                    <span class="read-time"><i class="far fa-clock"></i> 8 menit</span>
+                                </div>
+                            </div>
+
+                        </a>
+
+
+                    </article>
+                    <!-- Tambahkan artikel SD lainnya di sini -->
                 </div>
+            </section>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/project-2.jpg" alt="Task Management App">
-                    </div>
-                    <div class="project-content">
-                        <h3>Task Management Dashboard</h3>
-                        <p>A responsive task management application with real-time updates, drag-and-drop functionality,
-                            and team collaboration features.</p>
-                        <div class="project-tags">
-                            <span>Vue.js</span>
-                            <span>Firebase</span>
-                            <span>CSS Grid</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">Live Demo</a>
-                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Struktur serupa untuk SMP, SMA, dan Matematika Lanjut -->
+        </section>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/project-3.jpg" alt="Portfolio Website">
-                    </div>
-                    <div class="project-content">
-                        <h3>Personal Portfolio Website</h3>
-                        <p>A modern and responsive portfolio website showcasing my work and skills. Built with HTML5,
-                            CSS3, and JavaScript.</p>
-                        <div class="project-tags">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">Live Demo</a>
-                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div> -->
-    <!-- Add more project cards as needed -->
-    <!-- </div>
-        </div>
-    </section> -->
+        <!-- Kategori Bahasa -->
+        <section id="bahasa" class="category-section">
+            <!-- Sub-kategori Bahasa Inggris dan Arab -->
+        </section>
 
-    <!-- Update pada blog section -->
-    <section id="blog" class="blog">
-        <div class="container">
+        <!-- Kategori Wirausaha -->
+        <section id="wirausaha" class="category-section">
+            <!-- Sub-kategori Pengusaha Pemula dan Akuntansi -->
+        </section>
+
+        <!-- Kategori Produk Digital -->
+        <section id="produk" class="category-section">
             <div class="section-header">
-                <h2>Latest Articles</h2>
-                <div class="separator"></div>
-                <p>Exploring Technology, Mathematics, Languages, and Coffee</p>
+                <h2>Produk Digital</h2>
+                <p>Koleksi produk digital berkualitas untuk pembelajaran</p>
             </div>
-
-            <div class="blog-categories">
-                <button class="category-btn active" data-category="all">All</button>
-                <button class="category-btn" data-category="tech">Technology</button>
-                <button class="category-btn" data-category="math">Mathematics</button>
-                <button class="category-btn" data-category="lang">Languages</button>
-                <button class="category-btn" data-category="coffee">Coffee</button>
+            <div class="product-grid">
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/product1.jpg" alt="Nama Produk" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h3>Nama Produk</h3>
+                        <p class="product-description">Deskripsi singkat produk...</p>
+                        <div class="product-price">
+                            <span class="price">Rp 99.000</span>
+                            <button class="buy-btn">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </article>
+                <!-- Tambahkan produk lainnya di sini -->
             </div>
-
-            <div class="blog-grid">
-                <!-- Blog cards tetap sama -->
-                <!-- Technology Category -->
-                <div class="blog-card" data-category="tech">
-                    <!-- Tambahkan di dalam setiap blog-image div -->
-                    <div class="blog-image">
-                        <div class="image-loader"></div>
-                        <img src="images/tech/developer-career.jpg" alt="Developer Career" loading="lazy">
-                        <div class="category-tag">Technology</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">20 Jan 2025</span>
-                            <span class="read-time">5 min read</span>
-                        </div>
-                        <h3>Memahami Peran Developer di Era Digital</h3>
-                        <p>Eksplorasi mendalam tentang karir sebagai developer dan peluangnya di masa depan.</p>
-                        <div class="blog-tags">
-                            <span>#programming</span>
-                            <span>#career</span>
-                            <span>#technology</span>
-                        </div>
-                        <a href="blog/tech/memahami-peran-developer.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <!-- Mathematics Category -->
-                <div class="blog-card" data-category="math">
-                    <div class="blog-image">
-                        <div class="image-loader"></div>
-                        <img src="images/math/calculus-basics.jpg" alt="Calculus Basics">
-                        <div class="category-tag">Mathematics</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">19 Jan 2025</span>
-                            <span class="read-time">7 min read</span>
-                        </div>
-                        <h3>Memahami Kalkulus Dasar dengan Mudah</h3>
-                        <p>Panduan praktis memahami konsep dasar kalkulus untuk siswa SMA.</p>
-                        <div class="blog-tags">
-                            <span>#mathematics</span>
-                            <span>#calculus</span>
-                            <span>#education</span>
-                        </div>
-                        <a href="blog/math/kalkulus-dasar.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <!-- Language Learning Category -->
-                <div class="blog-card" data-category="lang">
-                    <div class="blog-image">
-                        <div class="image-loader"></div>
-                        <img src="images/lang/arabic-grammar.jpg" alt="Arabic Grammar">
-                        <div class="category-tag">Languages</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">18 Jan 2025</span>
-                            <span class="read-time">6 min read</span>
-                        </div>
-                        <h3>Dasar-dasar Nahwu dalam Bahasa Arab</h3>
-                        <p>Pengenalan struktur tata bahasa Arab untuk pemula.</p>
-                        <div class="blog-tags">
-                            <span>#arabic</span>
-                            <span>#grammar</span>
-                            <span>#language</span>
-                        </div>
-                        <a href="blog/lang/dasar-nahwu.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <!-- Coffee Category -->
-                <div class="blog-card" data-category="coffee">
-                    <div class="blog-image">
-                        <div class="image-loader"></div>
-                        <img src="images/coffee/brewing-methods.jpg" alt="Coffee Brewing">
-                        <div class="category-tag">Coffee</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">17 Jan 2025</span>
-                            <span class="read-time">4 min read</span>
-                        </div>
-                        <h3>Manual Brewing: Dari Pemula Hingga Ahli</h3>
-                        <p>Panduan lengkap berbagai metode manual brewing untuk pecinta kopi.</p>
-                        <div class="blog-tags">
-                            <span>#coffee</span>
-                            <span>#brewing</span>
-                            <span>#barista</span>
-                        </div>
-                        <a href="blog/coffee/manual-brewing-guide.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Social Share Buttons -->
-            <div class="share-buttons">
-                <h4>Share this article:</h4>
-                <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <!-- <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get in Touch</h2>
-                <div class="separator"></div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Work Together</h3>
-                    <p>I'm always interested in hearing about new projects and opportunities. Whether you have a
-                        question or just want to say hi, I'll try my best to get back to you!</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>email@example.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Indonesia</span>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" required placeholder="Your Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" required placeholder="Your Email">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" required placeholder="Subject">
-                    </div>
-                    <div class="form-group">
-                        <textarea required placeholder="Your Message"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section> -->
-
+        </section>
+    </main>
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Yasin's Portfolio</h3>
-                    <p>Frontend Developer & Technical Writer</p>
-                </div>
-                <div class="social-links">
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 Yasin's Portfolio. All rights reserved.</p>
-                </div>
+        <div class="footer-content">
+            <!-- Links media sosial -->
+            <div class="social-links">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/yasinyanzhurr" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
+            <!-- Copyright -->
+            <p>&copy; 2025 Yasin's Blog. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- JavaScript -->
+    <script src="js/main.js" defer></script>
 </body>
 
 </html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Pecahan dengan Cara Menyenangkan | Yasin's Blog</title>
+
+    <!-- Pastikan path CSS sesuai dengan struktur folder (gunakan path relatif ke root) -->
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/blog-post.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Progress bar untuk menunjukkan progress scroll halaman -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Header dengan navigasi fixed -->
+    <header>
+        <!-- Modifikasi pada bagian navbar -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>Yasin's Blog</h1>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#beranda">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#matematika">Matematika <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#matematika-sd">SD</a></li>
+                        <li><a href="#matematika-smp">SMP</a></li>
+                        <li><a href="#matematika-sma">SMA</a></li>
+                        <li><a href="#matematika-lanjut">Matematika Lanjut</a></li>
+                    </ul>
+                </li>
+                <li><a href="#teknologi">Teknologi</a></li>
+                <li class="dropdown">
+                    <a href="#bahasa">Bahasa <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#bahasa-inggris">Bahasa Inggris</a></li>
+                        <li><a href="#bahasa-arab">Bahasa Arab</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#wirausaha">Wirausaha <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#pemula">Pengusaha Pemula</a></li>
+                        <li><a href="#akuntansi">Akuntansi Dasar</a></li>
+                    </ul>
+                </li>
+                <li><a href="#produk">Produk Digital</a></li>
+            </ul>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main class="blog-post">
+        <article>
+            <header class="post-header">
+                <div class="post-category">
+                    <a href="../../../index.html#matematika">Matematika SD</a>
+                </div>
+                <h1>Belajar Pecahan dengan Cara Menyenangkan! 🍕</h1>
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> 21 Jan 2025</span>
+                    <span><i class="far fa-clock"></i> 10 menit baca</span>
+                    <span><i class="far fa-user"></i> Yasin</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <img src="../../../images/blog/matematika/sd/pecahan-visual.jpg" alt="Visualisasi Pecahan dengan Pizza"
+                    class="featured-image">
+
+                <div class="article-intro">
+                    <p>Hai teman-teman! Pernahkah kalian berbagi pizza dengan keluarga? Atau membagi kue ulang tahun
+                        dengan teman-teman? Nah, tanpa sadar, kalian sudah menggunakan konsep pecahan dalam kehidupan
+                        sehari-hari! 🎉</p>
+                </div>
+
+                <div class="table-of-contents">
+                    <h2>Daftar Isi</h2>
+                    <ul>
+                        <li><a href="#pengantar">1. Apa itu Pecahan?</a></li>
+                        <li><a href="#konsep-dasar">2. Mengenal Pecahan dengan Pizza</a></li>
+                        <li><a href="#jenis-pecahan">3. Jenis-jenis Pecahan</a></li>
+                        <li><a href="#visualisasi">4. Belajar dengan Visualisasi</a></li>
+                        <li><a href="#kehidupan-sehari">5. Pecahan dalam Kehidupan</a></li>
+                        <li><a href="#latihan">6. Mari Berlatih!</a></li>
+                    </ul>
+                </div>
+
+                <section id="pengantar">
+                    <h2>1. Apa itu Pecahan? 🤔</h2>
+                    <p>Pecahan adalah bagian dari sesuatu yang utuh. Bayangkan seperti membagi cokelat dengan adikmu.
+                        Jika cokelat dibagi dua sama besar, masing-masing mendapat <strong>1/2</strong> (satu per dua)
+                        bagian.</p>
+
+                    <div class="info-box">
+                        <h3>Komponen Pecahan:</h3>
+                        <ul>
+                            <li><strong>Pembilang</strong>: Angka di atas garis (berapa bagian yang diambil)</li>
+                            <li><strong>Penyebut</strong>: Angka di bawah garis (total bagian keseluruhan)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="konsep-dasar">
+                    <h2>2. Mengenal Pecahan dengan Pizza 🍕</h2>
+                    <div class="interactive-demo">
+                        <img src="../../../images/blog/matematika/sd/pizza-demo.jpg"
+                            alt="Demonstrasi Pecahan dengan Pizza">
+                        <div class="pizza-explanation">
+                            <p>Mari belajar dengan pizza:</p>
+                            <ul>
+                                <li>Pizza utuh = 1 pizza</li>
+                                <li>Setengah pizza = 1/2</li>
+                                <li>Seperempat pizza = 1/4</li>
+                                <li>Tiga perempat pizza = 3/4</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="jenis-pecahan">
+                    <h2>3. Jenis-jenis Pecahan 📚</h2>
+                    <div class="fraction-types">
+                        <div class="fraction-card">
+                            <h3>Pecahan Biasa</h3>
+                            <p>Contoh: 1/2, 3/4, 2/5</p>
+                            <img src="../../../images/blog/matematika/sd/pecahan-biasa.jpg" alt="Pecahan Biasa">
+                        </div>
+
+                        <div class="fraction-card">
+                            <h3>Pecahan Campuran</h3>
+                            <p>Contoh: 1½, 2¾, 3⅕</p>
+                            <img src="../../../images/blog/matematika/sd/pecahan-campuran.jpg" alt="Pecahan Campuran">
+                        </div>
+                    </div>
+                </section>
+
+                <section id="visualisasi">
+                    <h2>4. Belajar dengan Visualisasi 🎨</h2>
+                    <div class="visual-learning">
+                        <div class="visual-example">
+                            <img src="../../../images/blog/matematika/sd/pecahan-visual-1.jpg"
+                                alt="Visualisasi Pecahan 1">
+                            <p>1/4 = Satu bagian dari empat bagian yang sama</p>
+                        </div>
+                        <div class="visual-example">
+                            <img src="../../../images/blog/matematika/sd/pecahan-visual-2.jpg"
+                                alt="Visualisasi Pecahan 2">
+                            <p>2/4 = Dua bagian dari empat bagian yang sama</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="kehidupan-sehari">
+                    <h2>5. Pecahan dalam Kehidupan Sehari-hari 🌟</h2>
+                    <div class="daily-examples">
+                        <ul>
+                            <li>Membagi kue ulang tahun</li>
+                            <li>Mengukur bahan masakan (½ sendok teh garam)</li>
+                            <li>Membagi waktu (¼ jam = 15 menit)</li>
+                            <li>Mengisi gelas (setengah gelas air)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="latihan">
+                    <h2>6. Mari Berlatih! ✏️</h2>
+                    <div class="exercise-section">
+                        <div class="exercise-box">
+                            <h3>Latihan 1: Mengenal Pecahan</h3>
+                            <p>Lihat gambar berikut dan tentukan pecahannya:</p>
+                            <img src="../../../images/blog/matematika/sd/latihan-1.jpg" alt="Latihan Pecahan 1">
+                            <div class="answer-box">
+                                <p>Jawaban: 3/4 (tiga perempat)</p>
+                            </div>
+                        </div>
+
+                        <div class="exercise-box">
+                            <h3>Latihan 2: Pecahan dalam Kehidupan</h3>
+                            <p>Jika kamu memiliki 1 cokelat dan ingin berbagi sama rata dengan 3 temanmu, berapa bagian
+                                yang masing-masing dapat?</p>
+                            <div class="hint-box">
+                                <p>Petunjuk: Bagi cokelat menjadi 4 bagian sama besar</p>
+                            </div>
+                            <div class="answer-box">
+                                <p>Jawaban: 1/4 (seperempat) bagian untuk masing-masing</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="summary-box">
+                    <h2>Rangkuman 📝</h2>
+                    <ul>
+                        <li>Pecahan adalah bagian dari keseluruhan</li>
+                        <li>Pecahan terdiri dari pembilang dan penyebut</li>
+                        <li>Ada pecahan biasa dan pecahan campuran</li>
+                        <li>Pecahan sering digunakan dalam kehidupan sehari-hari</li>
+                    </ul>
+                </div>
+
+                <div class="next-steps">
+                    <h3>Mau Belajar Lebih? 🚀</h3>
+                    <ul>
+                        <li><a href="penjumlahan-pecahan.html">Belajar Penjumlahan Pecahan</a></li>
+                        <li><a href="pengurangan-pecahan.html">Belajar Pengurangan Pecahan</a></li>
+                        <li><a href="perkalian-pecahan.html">Belajar Perkalian Pecahan</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <footer class="post-footer">
+                <div class="post-tags">
+                    <a href="#" class="tag">matematika</a>
+                    <a href="#" class="tag">pecahan</a>
+                    <a href="#" class="tag">sd</a>
+                    <a href="#" class="tag">pembelajaran</a>
+                </div>
+
+                <div class="share-post">
+                    <h3>Bagikan ke Teman! 🌟</h3>
+                    <div class="share-buttons">
+                        <!-- ... share buttons ... -->
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </main>
+</body>
+
+</html>

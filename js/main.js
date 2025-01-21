@@ -1,277 +1,244 @@
-// Utility functions
-const utils = {
-    currentTime: '2025-01-20 16:08:08',
-    currentUser: 'yasinyanzhurr',
+/**
+ * main.js - File JavaScript utama untuk website
+ * Author: Yasin
+ * Last Updated: 2025-01-21
+ */
 
-    // Debounce function untuk optimisasi performa
-    debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
+// Tunggu hingga DOM sepenuhnya dimuat
+document.addEventListener('DOMContentLoaded', function () {
+    initializeWebsite();
+});
+
+/**
+ * Fungsi utama untuk menginisialisasi semua fitur website
+ */
+function initializeWebsite() {
+    setupTheme();
+    setupArticleFeatures();
+    setupNavigation();
+    setupScrollFeatures();
+    setupProductFeatures();
+}
+
+/**
+ * Konfigurasi Tema
+ */
+const ThemeConfig = {
+    KEY: 'theme',
+    MODES: {
+        LIGHT: 'light',
+        DARK: 'dark'
     },
-
-    // Lazy loading images
-    lazyLoadImages() {
-        const images = document.querySelectorAll('img[data-src]');
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-
-        images.forEach(img => imageObserver.observe(img));
+    ICONS: {
+        LIGHT: '🌙',
+        DARK: '☀️'
     }
 };
 
-class NavbarHandler {
-    constructor() {
-        this.dropdowns = document.querySelectorAll('.nav-item.dropdown');
-        this.init();
+/**
+ * Setup tema website
+ */
+function setupTheme() {
+    // Buat atau dapatkan tombol toggle
+    const themeToggle = createThemeToggle();
+
+    // Set tema awal
+    const currentTheme = localStorage.getItem(ThemeConfig.KEY) || ThemeConfig.MODES.LIGHT;
+    setTheme(currentTheme);
+
+    // Event listener untuk toggle tema
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
+/**
+ * Buat tombol toggle tema jika belum ada
+ */
+function createThemeToggle() {
+    if (!document.getElementById('theme-toggle')) {
+        const nav = document.querySelector('.nav-menu');
+        const toggle = document.createElement('button');
+        toggle.id = 'theme-toggle';
+        toggle.className = 'theme-toggle';
+        toggle.innerHTML = ThemeConfig.ICONS.LIGHT;
+        nav.appendChild(toggle);
     }
+    return document.getElementById('theme-toggle');
+}
 
-    init() {
-        this.setupDropdownHandlers();
-        this.setupClickOutside();
+/**
+ * Set tema website
+ */
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem(ThemeConfig.KEY, theme);
+    updateThemeIcon(theme);
+}
+
+/**
+ * Update ikon tema
+ */
+function updateThemeIcon(theme) {
+    const toggle = document.getElementById('theme-toggle');
+    toggle.innerHTML = theme === ThemeConfig.MODES.DARK ?
+        ThemeConfig.ICONS.DARK : ThemeConfig.ICONS.LIGHT;
+}
+
+/**
+ * Toggle tema antara light dan dark
+ */
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === ThemeConfig.MODES.DARK ?
+        ThemeConfig.MODES.LIGHT : ThemeConfig.MODES.DARK;
+    setTheme(newTheme);
+}
+
+/**
+ * Setup fitur-fitur artikel
+ */
+function setupArticleFeatures() {
+    setupLikeButtons();
+    setupShareButtons();
+    addReadingTime();
+
+    // Fitur khusus untuk halaman artikel penuh
+    if (document.querySelector('.article-full')) {
+        generateTableOfContents();
+        setupReadingProgress();
     }
+}
 
-    setupDropdownHandlers() {
-        this.dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('.nav-link');
+/**
+ * Setup tombol like
+ */
+function setupLikeButtons() {
+    document.querySelectorAll('.like-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const countSpan = button.querySelector('span');
+            let count = parseInt(countSpan.textContent);
 
-            // Toggle dropdown on click
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
+            if (button.classList.toggle('liked')) {
+                count++;
+                button.querySelector('i').className = 'fas fa-heart';
+            } else {
+                count--;
+                button.querySelector('i').className = 'far fa-heart';
+            }
 
-                // Close other dropdowns
-                this.closeAllDropdowns();
-
-                // Toggle current dropdown
-                dropdown.classList.toggle('show');
-            });
+            countSpan.textContent = count;
+            saveLikeStatus(button.dataset.articleId, button.classList.contains('liked'));
         });
-    }
+    });
+}
 
-    closeAllDropdowns() {
-        this.dropdowns.forEach(dropdown => {
-            dropdown.classList.remove('show');
-        });
-    }
+/**
+ * Setup tombol share
+ */
+function setupShareButtons() {
+    document.querySelectorAll('.share-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const article = button.closest('article');
+            const title = article.querySelector('h3').textContent;
+            const url = window.location.href;
 
-    setupClickOutside() {
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav-item.dropdown')) {
-                this.closeAllDropdowns();
+            if (navigator.share) {
+                navigator.share({ title, url }).catch(console.error);
+            } else {
+                window.open(
+                    `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
+                    '_blank'
+                );
             }
         });
+    });
+}
+
+/**
+ * Setup fitur navigasi
+ */
+function setupNavigation() {
+    setupMobileNav();
+    setupSmoothScroll();
+}
+
+/**
+ * Setup navigasi mobile
+ */
+function setupMobileNav() {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
     }
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    const navbarHandler = new NavbarHandler();
-});
+/**
+ * Setup smooth scroll untuk link internal
+ */
+function setupSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+            e.preventDefault();
+            const targetId = anchor.getAttribute('href');
+            const target = document.querySelector(targetId);
 
-// Main App Class
-class PortfolioApp {
-    constructor() {
-        this.navbar = document.querySelector('.navbar');
-        this.lastScroll = 0;
-        this.isLoading = true;
-        this.init();
-    }
+            if (target) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
 
-    init() {
-        this.setupLoader();
-        this.setupEventListeners();
-        this.setupIntersectionObserver();
-        this.initializeBlogFilters();
-        this.initializeDarkMode();
-        utils.lazyLoadImages();
-    }
-
-    setupLoader() {
-        const loader = document.createElement('div');
-        loader.classList.add('loading');
-        loader.innerHTML = '<div class="loading-spinner"></div>';
-        document.body.appendChild(loader);
-
-        window.addEventListener('load', () => {
-            this.isLoading = false;
-            loader.remove();
-        });
-    }
-
-    setupEventListeners() {
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(anchor.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Optimized scroll handler
-        window.addEventListener('scroll', utils.debounce(() => {
-            this.handleScroll();
-        }, 10));
-
-        // Mobile menu
-        this.setupMobileMenu();
-
-        // Form handling
-        this.setupContactForm();
-    }
-
-    handleScroll() {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll <= 0) {
-            this.navbar.classList.remove('scroll-up');
-            return;
-        }
-
-        if (currentScroll > this.lastScroll && !this.navbar.classList.contains('scroll-down')) {
-            this.navbar.classList.remove('scroll-up');
-            this.navbar.classList.add('scroll-down');
-        } else if (currentScroll < this.lastScroll && this.navbar.classList.contains('scroll-down')) {
-            this.navbar.classList.remove('scroll-down');
-            this.navbar.classList.add('scroll-up');
-        }
-        this.lastScroll = currentScroll;
-    }
-
-    setupMobileMenu() {
-        const mobileMenuButton = document.createElement('div');
-        mobileMenuButton.classList.add('mobile-menu');
-        mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
-
-        const navContainer = document.querySelector('.navbar .container');
-        const navLinks = document.querySelector('.nav-links');
-
-        navContainer.insertBefore(mobileMenuButton, navLinks);
-
-        mobileMenuButton.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = mobileMenuButton.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-    }
-
-    setupContactForm() {
-        const contactForm = document.querySelector('.contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', this.handleFormSubmit.bind(this));
-        }
-    }
-
-    async handleFormSubmit(e) {
-        e.preventDefault();
-        const form = e.target;
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-
-        try {
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
-
-            // Simulasi pengiriman form (ganti dengan API call sebenarnya)
-            await new Promise(resolve => setTimeout(resolve, 1500));
-
-            alert('Thank you for your message! I will get back to you soon.');
-            form.reset();
-        } catch (error) {
-            alert('Error sending message. Please try again.');
-        } finally {
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }
-    }
-
-    setupIntersectionObserver() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.project-card, .blog-card, .skill-item')
-            .forEach(el => observer.observe(el));
-    }
-
-    initializeBlogFilters() {
-        const categoryButtons = document.querySelectorAll('.category-btn');
-        const blogCards = document.querySelectorAll('.blog-card');
-
-        categoryButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const category = button.dataset.category;
-
-                categoryButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                blogCards.forEach(card => {
-                    card.style.display =
-                        (category === 'all' || card.dataset.category === category)
-                            ? 'block'
-                            : 'none';
+                window.scrollTo({
+                    top: targetPosition - navbarHeight - 20,
+                    behavior: 'smooth'
                 });
-            });
+            }
         });
-    }
+    });
+}
 
-    initializeDarkMode() {
-        const darkModeToggle = document.createElement('button');
-        darkModeToggle.classList.add('dark-mode-toggle');
-        darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
-        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+/**
+ * Setup fitur scroll
+ */
+function setupScrollFeatures() {
+    setupScrollProgress();
+}
 
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const savedTheme = localStorage.getItem('theme');
-
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            document.body.classList.add('dark-mode');
-            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
-            darkModeToggle.innerHTML = isDark ?
-                '<i class="fas fa-sun"></i>' :
-                '<i class="fas fa-moon"></i>';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+/**
+ * Setup progress bar scroll
+ */
+function setupScrollProgress() {
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = `${scrolled}%`;
         });
-
-        document.querySelector('.navbar .container').appendChild(darkModeToggle);
     }
 }
 
-// Initialize app
-document.addEventListener('DOMContentLoaded', () => {
-    new PortfolioApp();
-});
+/**
+ * Setup fitur produk
+ */
+function setupProductFeatures() {
+    setupProductPurchase();
+}
 
-// Update copyright year
-document.querySelector('footer p').innerHTML =
-    `&copy; ${new Date().getFullYear()} Yasin's Portfolio. All rights reserved.`;
+/**
+ * Setup pembelian produk
+ */
+function setupProductPurchase() {
+    document.querySelectorAll('.buy-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const productCard = this.closest('.product-card');
+            const productName = productCard.querySelector('h3').textContent;
+            const productPrice = productCard.querySelector('.price').textContent;
+            showPurchaseModal(productName, productPrice);
+        });
+    });
+}
+
+// Fungsi utilitas tambahan bisa ditambahkan di sini

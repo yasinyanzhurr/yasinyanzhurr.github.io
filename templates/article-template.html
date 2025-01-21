@@ -4,74 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ARTICLE_TITLE}} - Yasin's Blog</title>
-    <meta name="description" content="{{ARTICLE_DESCRIPTION}}">
-    <meta name="keywords" content="{{ARTICLE_KEYWORDS}}">
+    <title>JUDUL_ARTIKEL | Yasin's Blog</title>
+
+    <!-- CSS utama dan blog post -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/blog-post.css">
-    <!-- Newsletter Integration -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <!-- Font dan icon yang sama dengan index.html -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <!-- ... (previous navbar code) ... -->
-    </nav>
+    <!-- Header sama dengan index.html -->
+    <header>
+        <!-- Navbar yang sama -->
+    </header>
 
-    <article class="blog-post">
-        <div class="container">
-            <header class="post-header">
-                <div class="category-label">{{CATEGORY}}</div>
-                <h1>{{ARTICLE_TITLE}}</h1>
-                <div class="post-meta">
-                    <span class="post-date">{{PUBLISH_DATE}}</span>
-                    <span class="post-author">By: Yasin Yanzhurr</span>
-                    <span class="read-time">{{READ_TIME}} min read</span>
-                </div>
-                <div class="post-tags">
-                    {{TAGS}}
-                </div>
-            </header>
-
-            <div class="post-content">
-                {{ARTICLE_CONTENT}}
-            </div>
-
-            <!-- Newsletter Signup -->
-            <div class="newsletter-signup">
-                <h3>Subscribe to My Newsletter</h3>
-                <p>Get the latest articles about technology, mathematics, languages, and coffee directly to your inbox!
-                </p>
-                <form id="newsletter-form" class="newsletter-form">
-                    <input type="email" id="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
-            </div>
-
-            <!-- Comment Section -->
-            <div class="comments-section">
-                <h3>Comments</h3>
-                <div id="comments-container"></div>
-                <form id="comment-form" class="comment-form">
-                    <textarea id="comment-text" placeholder="Share your thoughts..." required></textarea>
-                    <button type="submit" class="btn btn-primary">Post Comment</button>
-                </form>
-            </div>
-
-            <!-- Related Articles -->
-            <div class="related-posts">
-                <h3>Related Articles</h3>
-                <div class="related-grid">
-                    {{RELATED_ARTICLES}}
-                </div>
-            </div>
+    <!-- Konten Artikel -->
+    <main class="blog-post">
+        <!-- Area konten yang akan berubah -->
+        <div id="article-content">
+            <!-- Konten artikel akan dimasukkan di sini -->
         </div>
-    </article>
+    </main>
 
-    <!-- Footer -->
+    <!-- Footer sama dengan index.html -->
     <footer>
-        <!-- ... (previous footer code) ... -->
+        <!-- Footer content -->
     </footer>
 </body>
 
