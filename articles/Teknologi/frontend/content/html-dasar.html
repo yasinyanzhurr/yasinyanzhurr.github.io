@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="yyanzhur">
+    <meta name="date" content="2025-01-26">
+    <meta name="last-modified" content="2025-01-26 09:28:17">
+    
+    <title>HTML Dasar - Frontend Development</title>
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="navbar-container"></div>
+    <div class="progress-bar"></div>
+
+    <div class="container mt-4">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="animate-on-scroll">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/"><i class="bi bi-house"></i> Beranda</a></li>
+                <li class="breadcrumb-item"><a href="/articles/teknologi/">Teknologi</a></li>
+                <li class="breadcrumb-item"><a href="/articles/teknologi/frontend/">Frontend</a></li>
+                <li class="breadcrumb-item active">HTML Dasar</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="card mb-4 animate-on-scroll">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Frontend Development</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="html-dasar.html">
+                                    <i class="bi bi-chevron-right"></i> HTML Dasar
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="css-dasar.html">
+                                    <i class="bi bi-chevron-right"></i> CSS Dasar
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Article Info Card -->
+                <div class="card mb-4 animate-on-scroll">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="bi bi-clock"></i> Terakhir diperbarui
+                        </h6>
+                        <p class="card-text small">26 Januari 2025</p>
+                        
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="bi bi-person"></i> Penulis
+                        </h6>
+                        <p class="card-text small">@yyanzhur</p>
+                        
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="bi bi-clock-history"></i> Waktu Baca
+                        </h6>
+                        <p class="card-text small">20 menit</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <article class="content-article">
+                    <header class="article-header animate-on-scroll">
+                        <h1>HTML Dasar</h1>
+                        <p class="lead">
+                            HTML (HyperText Markup Language) adalah bahasa markup standar untuk membuat halaman web.
+                            Mari belajar dasar-dasar HTML untuk memulai perjalanan Anda dalam web development!
+                        </p>
+                    </header>
+
+                    <div class="article-content mt-4">
+                        <!-- Table of Contents -->
+                        <div class="card mb-4 animate-on-scroll">
+                            <div class="card-body">
+                                <h5 class="card-title">Daftar Isi</h5>
+                                <nav id="toc">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#pengenalan">1. Pengenalan HTML</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#struktur">2. Struktur Dasar HTML</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#elements">3. Elemen-elemen HTML</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#practice">4. Latihan Membuat Halaman</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <!-- Article Sections -->
+                        <section id="pengenalan" class="mb-5 animate-on-scroll">
+                            <h2>1. Pengenalan HTML</h2>
+                            <p>
+                                HTML adalah fondasi dari setiap halaman web. Ini adalah bahasa markup yang 
+                                menggunakan tag untuk mendefinisikan elemen-elemen dalam halaman web.
+                            </p>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5>Apa yang bisa dibuat dengan HTML?</h5>
+                                    <ul>
+                                        <li>Struktur halaman web</li>
+                                        <li>Teks dan paragraf</li>
+                                        <li>Gambar dan multimedia</li>
+                                        <li>Link dan navigasi</li>
+                                        <li>Form dan input</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="struktur" class="mb-5 animate-on-scroll">
+                            <h2>2. Struktur Dasar HTML</h2>
+                            <p>Setiap dokumen HTML memiliki struktur dasar berikut:</p>
+                            <pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Judul Halaman&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Halo, Dunia!&lt;/h1&gt;
+    &lt;p&gt;Ini adalah paragraf.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                            </code></pre>
+                        </section>
+
+                        <section id="elements" class="mb-5 animate-on-scroll">
+                            <h2>3. Elemen-elemen HTML</h2>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-warning">
+                                        <tr>
+                                            <th>Tag</th>
+                                            <th>Fungsi</th>
+                                            <th>Contoh</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>&lt;h1&gt; - &lt;h6&gt;</td>
+                                            <td>Heading (Judul)</td>
+                                            <td>&lt;h1&gt;Judul Utama&lt;/h1&gt;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&lt;p&gt;</td>
+                                            <td>Paragraf</td>
+                                            <td>&lt;p&gt;Ini paragraf&lt;/p&gt;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&lt;a&gt;</td>
+                                            <td>Link</td>
+                                            <td>&lt;a href="url"&gt;Link&lt;/a&gt;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="practice" class="mb-5 animate-on-scroll">
+                            <h2>4. Latihan Membuat Halaman</h2>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5>Tugas: Buat halaman profil sederhana</h5>
+                                    <p>Gunakan kode berikut sebagai template:</p>
+                                    <pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+    &lt;title&gt;Profil Saya&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;[Nama Anda]&lt;/h1&gt;
+    &lt;p&gt;[Deskripsi singkat tentang Anda]&lt;/p&gt;
+    &lt;h2&gt;Hobi:&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;[Hobi 1]&lt;/li&gt;
+        &lt;li&gt;[Hobi 2]&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                                    </code></pre>
+                                    <button class="btn btn-primary mt-3" onclick="showExample()">
+                                        Lihat Contoh Hasil
+                                    </button>
+                                    <div id="example" style="display: none;" class="mt-3">
+                                        <h5>Contoh Hasil:</h5>
+                                        <div class="border p-3">
+                                            <h1>John Doe</h1>
+                                            <p>Saya adalah seorang web developer pemula.</p>
+                                            <h2>Hobi:</h2>
+                                            <ul>
+                                                <li>Coding</li>
+                                                <li>Membaca</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Article Navigation -->
+                    <nav class="article-navigation mt-5 animate-on-scroll">
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="btn btn-outline-primary disabled">
+                                    <i class="bi bi-arrow-left"></i> Artikel Sebelumnya
+                                </a>
+                            </div>
+                            <div class="col-6 text-end">
+                                <a href="css-dasar.html" class="btn btn-outline-primary">
+                                    CSS Dasar <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Prism.js for code highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-markup.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/main.js"></script>
+    <script>
+        function showExample() {
+            document.getElementById('example').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

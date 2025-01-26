@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="yyanzhur">
+    <meta name="date" content="2025-01-26">
+    <meta name="last-modified" content="2025-01-26 09:34:22">
+    
+    <title>Kata-kata Dasar - Bahasa Arab</title>
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    
+    <style>
+        .arabic-text {
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.8rem;
+            direction: rtl;
+        }
+        .word-card {
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .word-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .category-title {
+            border-bottom: 3px solid var(--primary-yellow);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .flashcard {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .flashcard-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+    <div class="progress-bar"></div>
+
+    <div class="container mt-4">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="animate-on-scroll">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/"><i class="bi bi-house"></i> Beranda</a></li>
+                <li class="breadcrumb-item"><a href="/articles/bahasa/">Bahasa</a></li>
+                <li class="breadcrumb-item"><a href="/articles/bahasa/arab/">Arab</a></li>
+                <li class="breadcrumb-item active">Kata-kata Dasar</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="card mb-4 animate-on-scroll">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Bahasa Arab</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="pengenalan-huruf-hijaiyah.html">
+                                    <i class="bi bi-chevron-right"></i> Pengenalan Huruf Hijaiyah
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="kata-kata-dasar.html">
+                                    <i class="bi bi-chevron-right"></i> Kata-kata Dasar
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Article Info Card -->
+                <div class="card mb-4 animate-on-scroll">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="bi bi-clock"></i> Terakhir diperbarui
+                        </h6>
+                        <p class="card-text small">26 Januari 2025</p>
+                        
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="bi bi-person"></i> Penulis
+                        </h6>
+                        <p class="card-text small">@yyanzhur</p>
+                        
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="bi bi-clock-history"></i> Waktu Baca
+                        </h6>
+                        <p class="card-text small">25 menit</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <article class="content-article">
+                    <header class="article-header animate-on-scroll">
+                        <h1>Kata-kata Dasar Bahasa Arab</h1>
+                        <p class="lead">
+                            Pelajari kata-kata dasar dalam bahasa Arab yang sering digunakan dalam percakapan sehari-hari.
+                            Artikel ini dilengkapi dengan audio dan cara pengucapan yang benar.
+                        </p>
+                    </header>
+
+                    <div class="article-content mt-4">
+                        <!-- Table of Contents -->
+                        <div class="card mb-4 animate-on-scroll">
+                            <div class="card-body">
+                                <h5 class="card-title">Daftar Isi</h5>
+                                <nav id="toc">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#greetings">1. Salam dan Sapaan</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#numbers">2. Angka</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#daily">3. Kata Sehari-hari</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#practice">4. Latihan Flashcard</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <!-- Article Sections -->
+                        <section id="greetings" class="mb-5 animate-on-scroll">
+                            <h2 class="category-title">1. Salam dan Sapaan</h2>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="card word-card">
+                                        <div class="card-body">
+                                            <div class="arabic-text text-center">السَّلامُ عَلَيْكُمْ</div>
+                                            <h5 class="text-center mt-2">Assalamu'alaikum</h5>
+                                            <p class="text-center text-muted">Semoga keselamatan menyertaimu</p>
+                                            <div class="audio-player text-center">
+                                                <audio controls>
+                                                    <source src="/audio/salam.mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="card word-card">
+                                        <div class="card-body">
+                                            <div class="arabic-text text-center">صَباحُ الْخَيْرِ</div>
+                                            <h5 class="text-center mt-2">Sabahul khair</h5>
+                                            <p class="text-center text-muted">Selamat pagi</p>
+                                            <div class="audio-player text-center">
+                                                <audio controls>
+                                                    <source src="/audio/morning.mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="numbers" class="mb-5 animate-on-scroll">
+                            <h2 class="category-title">2. Angka</h2>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-warning">
+                                        <tr>
+                                            <th>Angka</th>
+                                            <th>Arab</th>
+                                            <th>Cara Baca</th>
+                                            <th>Audio</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="arabic-text">واحِد</td>
+                                            <td>Wahid</td>
+                                            <td>
+                                                <audio controls>
+                                                    <source src="/audio/one.mp3" type="audio/mpeg">
+                                                </audio>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="arabic-text">اِثْنانِ</td>
+                                            <td>Itsnani</td>
+                                            <td>
+                                                <audio controls>
+                                                    <source src="/audio/two.mp3" type="audio/mpeg">
+                                                </audio>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="daily" class="mb-5 animate-on-scroll">
+                            <h2 class="category-title">3. Kata Sehari-hari</h2>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card word-card">
+                                        <div class="card-body">
+                                            <div class="arabic-text text-center">ماء</div>
+                                            <h5 class="text-center mt-2">Ma'un</h5>
+                                            <p class="text-center text-muted">Air</p>
+                                            <div class="audio-player text-center">
+                                                <audio controls>
+                                                    <source src="/audio/water.mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Add more daily words -->
+                            </div>
+                        </section>
+
+                        <section id="practice" class="mb-5 animate-on-scroll">
+                            <h2 class="category-title">4. Latihan Flashcard</h2>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                                <div class="card flashcard-inner">
+                                                    <div class="card-body flashcard-front">
+                                                        <div class="arabic-text">كَيْفَ حالُكَ؟</div>
+                                                        <p class="mt-3">Klik untuk melihat arti</p>
+                                                    </div>
+                                                    <div class="card-body flashcard-back">
+                                                        <h5>Kaifa haluka?</h5>
+                                                        <p>Apa kabar?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Add more flashcards -->
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Article Navigation -->
+                    <nav class="article-navigation mt-5 animate-on-scroll">
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="pengenalan-huruf-hijaiyah.html" class="btn btn-outline-primary">
+                                    <i class="bi bi-arrow-left"></i> Pengenalan Huruf Hijaiyah
+                                </a>
+                            </div>
+                            <div class="col-6 text-end">
+                                <a href="#" class="btn btn-outline-primary disabled">
+                                    Artikel Selanjutnya <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

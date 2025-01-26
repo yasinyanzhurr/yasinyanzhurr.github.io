@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="yyanzhur">
+    <meta name="date" content="2025-01-26">
+    <meta name="last-modified" content="2025-01-26 09:32:53">
+    
+    <title>Pengenalan Huruf Hijaiyah - Bahasa Arab</title>
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <!-- Arabic Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    
+    <style>
+        .arabic-text {
+            font-family: 'Scheherazade New', serif;
+            font-size: 2rem;
+            direction: rtl;
+        }
+        .letter-card {
+            transition: transform 0.3s ease;
+        }
+        .letter-card:hover {
+            transform: scale(1.05);
+        }
+        .pronunciation {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+    <div class="progress-bar"></div>
+
+    <div class="container mt-4">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="animate-on-scroll">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/"><i class="bi bi-house"></i> Beranda</a></li>
+                <li class="breadcrumb-item"><a href="/articles/bahasa/">Bahasa</a></li>
+                <li class="breadcrumb-item"><a href="/articles/bahasa/arab/">Arab</a></li>
+                <li class="breadcrumb-item active">Pengenalan Huruf Hijaiyah</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="card mb-4 animate-on-scroll">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Bahasa Arab</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="pengenalan-huruf-hijaiyah.html">
+                                    <i class="bi bi-chevron-right"></i> Pengenalan Huruf Hijaiyah
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="kata-kata-dasar.html">
+                                    <i class="bi bi-chevron-right"></i> Kata-kata Dasar
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Article Info Card -->
+                <div class="card mb-4 animate-on-scroll">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="bi bi-clock"></i> Terakhir diperbarui
+                        </h6>
+                        <p class="card-text small">26 Januari 2025</p>
+                        
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="bi bi-person"></i> Penulis
+                        </h6>
+                        <p class="card-text small">@yyanzhur</p>
+                        
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <i class="bi bi-clock-history"></i> Waktu Baca
+                        </h6>
+                        <p class="card-text small">20 menit</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <article class="content-article">
+                    <header class="article-header animate-on-scroll">
+                        <h1>Pengenalan Huruf Hijaiyah</h1>
+                        <p class="lead">
+                            Mari belajar mengenal huruf hijaiyah, huruf-huruf dasar dalam bahasa Arab.
+                            Artikel ini akan membantu Anda memahami bentuk dan cara pengucapan setiap huruf.
+                        </p>
+                    </header>
+
+                    <div class="article-content mt-4">
+                        <!-- Table of Contents -->
+                        <div class="card mb-4 animate-on-scroll">
+                            <div class="card-body">
+                                <h5 class="card-title">Daftar Isi</h5>
+                                <nav id="toc">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#pengenalan">1. Apa itu Huruf Hijaiyah?</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#huruf-dasar">2. Huruf-huruf Dasar</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#harakat">3. Tanda Baca (Harakat)</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#latihan">4. Latihan Membaca</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <!-- Article Sections -->
+                        <section id="pengenalan" class="mb-5 animate-on-scroll">
+                            <h2>1. Apa itu Huruf Hijaiyah?</h2>
+                            <p>
+                                Huruf Hijaiyah adalah huruf-huruf yang digunakan dalam bahasa Arab. 
+                                Terdapat 28 huruf dasar yang masing-masing memiliki bentuk dan cara pengucapan tersendiri.
+                            </p>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5>Karakteristik Huruf Hijaiyah:</h5>
+                                    <ul>
+                                        <li>Ditulis dan dibaca dari kanan ke kiri</li>
+                                        <li>Setiap huruf memiliki bentuk yang berbeda saat di awal, tengah, dan akhir kata</li>
+                                        <li>Pengucapan yang tepat sangat penting dalam membaca Al-Qur'an</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="huruf-dasar" class="mb-5 animate-on-scroll">
+                            <h2>2. Huruf-huruf Dasar</h2>
+                            <div class="row">
+                                <!-- Alif -->
+                                <div class="col-md-4 mb-3">
+                                    <div class="card letter-card">
+                                        <div class="card-body text-center">
+                                            <div class="arabic-text">ا</div>
+                                            <h5>Alif</h5>
+                                            <p class="pronunciation">Pengucapan: "a"</p>
+                                            <div class="audio-player">
+                                                <audio controls>
+                                                    <source src="/audio/alif.mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Ba -->
+                                <div class="col-md-4 mb-3">
+                                    <div class="card letter-card">
+                                        <div class="card-body text-center">
+                                            <div class="arabic-text">ب</div>
+                                            <h5>Ba</h5>
+                                            <p class="pronunciation">Pengucapan: "ba"</p>
+                                            <div class="audio-player">
+                                                <audio controls>
+                                                    <source src="/audio/ba.mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Ta -->
+                                <div class="col-md-4 mb-3">
+                                    <div class="card letter-card">
+                                        <div class="card-body text-center">
+                                            <div class="arabic-text">ت</div>
+                                            <h5>Ta</h5>
+                                            <p class="pronunciation">Pengucapan: "ta"</p>
+                                            <div class="audio-player">
+                                                <audio controls>
+                                                    <source src="/audio/ta.mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="harakat" class="mb-5 animate-on-scroll">
+                            <h2>3. Tanda Baca (Harakat)</h2>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5>Tanda Baca Dasar:</h5>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Harakat</th>
+                                                    <th>Nama</th>
+                                                    <th>Fungsi</th>
+                                                    <th>Contoh</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="arabic-text">َ</td>
+                                                    <td>Fathah</td>
+                                                    <td>Bunyi "a"</td>
+                                                    <td class="arabic-text">بَ = ba</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="arabic-text">ِ</td>
+                                                    <td>Kasrah</td>
+                                                    <td>Bunyi "i"</td>
+                                                    <td class="arabic-text">بِ = bi</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="arabic-text">ُ</td>
+                                                    <td>Dhammah</td>
+                                                    <td>Bunyi "u"</td>
+                                                    <td class="arabic-text">بُ = bu</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="latihan" class="mb-5 animate-on-scroll">
+                            <h2>4. Latihan Membaca</h2>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5>Mari Berlatih!</h5>
+                                    <p>Coba baca huruf-huruf berikut:</p>
+                                    
+                                    <div class="practice-section mb-3">
+                                        <div class="arabic-text text-center mb-3">
+                                            بَ تَ ثَ
+                                        </div>
+                                        <button class="btn btn-primary" onclick="showPronunciation()">
+                                            Lihat Cara Baca
+                                        </button>
+                                        <div id="pronunciation" style="display: none;" class="mt-3">
+                                            <p>ba - ta - tsa</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <h6>Tips Membaca:</h6>
+                                        <ul>
+                                            <li>Perhatikan bentuk huruf dengan teliti</li>
+                                            <li>Dengarkan audio berulang kali</li>
+                                            <li>Praktik mengucapkan setiap hari</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Article Navigation -->
+                    <nav class="article-navigation mt-5 animate-on-scroll">
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="btn btn-outline-primary disabled">
+                                    <i class="bi bi-arrow-left"></i> Artikel Sebelumnya
+                                </a>
+                            </div>
+                            <div class="col-6 text-end">
+                                <a href="kata-kata-dasar.html" class="btn btn-outline-primary">
+                                    Kata-kata Dasar <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/main.js"></script>
+    <script>
+        function showPronunciation() {
+            document.getElementById('pronunciation').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
