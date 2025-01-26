@@ -3,54 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Matematika</title>
+    <meta name="author" content="yyanzhur">
+    <meta name="last-modified" content="2025-01-26 09:15:24">
     
-    <!-- Google Fonts -->
+
+    <!-- Add this line after the charset meta tag -->
+    <base href="/">
+
+
+    
+    <title>Blog Pembelajaran - Matematika, Bahasa, dan Teknologi</title>
+    
+    <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- Custom CSS -->
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/theme.css" rel="stylesheet">
-    
-    <!-- MathJax -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <!-- Navbar container -->
+    <!-- Navbar akan dimuat di sini -->
     <div id="navbar-container"></div>
-
-    <!-- Main content -->
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-8">
-                <article class="article-preview">
-                    <h2>Contoh Artikel Matematika</h2>
-                    <p class="text-muted">Ditulis pada: 2025-01-26</p>
-                    <div class="math-content">
-                        <p>
-                            Rumus kuadrat adalah salah satu rumus dasar dalam matematika:
-                            \[x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}\]
-                        </p>
-                    </div>
-                    <a href="#" class="btn btn-primary">Baca selengkapnya</a>
-                </article>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="animate-on-scroll">
+                    <i class="bi bi-book"></i> Selamat Datang di Blog Pembelajaran
+                </h1>
+                <p class="lead animate-on-scroll">
+                    Temukan berbagai materi pembelajaran menarik tentang Matematika, Bahasa, dan Teknologi
+                </p>
             </div>
-            
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Tentang Blog</h5>
-                        <p class="card-text">Blog ini berisi artikel-artikel matematika dengan penjelasan yang mudah dipahami.</p>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container">
+            <!-- Matematika Section -->
+            <section class="category-block">
+                <h2 class="animate-on-scroll">
+                    <i class="bi bi-calculator"></i> Matematika
+                </h2>
+                <div class="row">
+                    <!-- SD Card -->
+                    <div class="col-md-3 mb-4">
+                        <div class="card article-card animate-on-scroll">
+                            <div class="card-body">
+                                <span class="category-badge bg-primary">SD</span>
+                                <h5 class="card-title">Matematika SD</h5>
+                                <p class="card-text">Pembelajaran matematika dasar untuk tingkat sekolah dasar.</p>
+                                <a href="/articles/matematika/sd/" class="btn btn-primary">
+                                    Mulai Belajar <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SMP Card -->
+                    <div class="col-md-3 mb-4">
+                        <div class="card article-card animate-on-scroll">
+                            <div class="card-body">
+                                <span class="category-badge bg-success">SMP</span>
+                                <h5 class="card-title">Matematika SMP</h5>
+                                <p class="card-text">Materi matematika untuk tingkat sekolah menengah pertama.</p>
+                                <a href="/articles/matematika/smp/" class="btn btn-primary">
+                                    Mulai Belajar <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SMA Card -->
+                    <div class="col-md-3 mb-4">
+                        <div class="card article-card animate-on-scroll">
+                            <div class="card-body">
+                                <span class="category-badge bg-warning">SMA</span>
+                                <h5 class="card-title">Matematika SMA</h5>
+                                <p class="card-text">Pembelajaran matematika tingkat sekolah menengah atas.</p>
+                                <a href="/articles/matematika/sma/" class="btn btn-primary">
+                                    Mulai Belajar <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Matematika Lanjut Card -->
+                    <div class="col-md-3 mb-4">
+                        <div class="card article-card animate-on-scroll">
+                            <div class="card-body">
+                                <span class="category-badge bg-danger">Lanjut</span>
+                                <h5 class="card-title">Matematika Lanjut</h5>
+                                <p class="card-text">Materi matematika tingkat lanjut dan perguruan tinggi.</p>
+                                <a href="/articles/matematika/lanjut/" class="btn btn-primary">
+                                    Mulai Belajar <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </section>
 
-    <!-- Footer container -->
+            <!-- Bahasa Section -->
+            <section class="category-block">
+                <h2 class="animate-on-scroll">
+                    <i class="bi bi-translate"></i> Bahasa
+                </h2>
+                <div class="row">
+                    <!-- Bahasa Inggris Card -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card article-card animate-on-scroll">
+                            <div class="card-body">
+                                <span class="category-badge bg-info">English</span>
+                                <h5 class="card-title">Bahasa Inggris</h5>
+                                <p class="card-text">Pelajari bahasa Inggris dari dasar hingga mahir.</p>
+                                <a href="/articles/bahasa/inggris/" class="btn btn-primary">
+                                    Mulai Belajar <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bahasa Arab Card -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card article-card animate-on-scroll">
+                            <div class="card-body">
+                                <span class="category-badge bg-secondary">Arabic</span>
+                                <h5 class="card-title">Bahasa Arab</h5>
+                                <p class="card-text">Pelajari bahasa Arab dari dasar hingga mahir.</p>
+                                <a href="/articles/bahasa/arab/" class="btn btn-primary">
+                                    Mulai Belajar <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Teknologi Section -->
+            <section class="category-block">
+                <h2 class="animate-on-scroll">
+                    <i class="bi bi-laptop"></i> Teknologi
+                </h2>
+                <div class="row">
+                    <!-- Frontend Card -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card article-card animate-on-scroll">
+                            <div class="card-body">
+                                <span class="category-badge bg-primary">Frontend</span>
+                                <h5 class="card-title">Frontend Development</h5>
+                                <p class="card-text">Belajar membuat tampilan website yang menarik.</p>
+                                <a href="/articles/teknologi/frontend/" class="btn btn-primary">
+                                    Mulai Belajar <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend Card -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card article-card animate-on-scroll">
+                            <div class="card-body">
+                                <span class="category-badge bg-success">Backend</span>
+                                <h5 class="card-title">Backend Development</h5>
+                                <p class="card-text">Pelajari pengembangan server dan database.</p>
+                                <a href="/articles/teknologi/backend/" class="btn btn-primary">
+                                    Mulai Belajar <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Office Card -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card article-card animate-on-scroll">
+                            <div class="card-body">
+                                <span class="category-badge bg-info">Office</span>
+                                <h5 class="card-title">Microsoft Office</h5>
+                                <p class="card-text">Tingkatkan kemampuan Microsoft Office Anda.</p>
+                                <a href="/articles/teknologi/office/" class="btn btn-primary">
+                                    Mulai Belajar <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest Articles Section -->
+            <section class="category-block">
+                <h2 class="animate-on-scroll">
+                    <i class="bi bi-clock-history"></i> Artikel Terbaru
+                </h2>
+                <div class="row">
+                    <!-- Latest Article Card -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card article-card animate-on-scroll">
+                            <div class="card-body">
+                                <span class="category-badge bg-primary">Matematika SD</span>
+                                <h5 class="card-title">Penjumlahan Dasar</h5>
+                                <p class="card-text">Belajar penjumlahan angka 1-100 dengan cara yang menyenangkan.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="/articles/matematika/sd/content/penjumlahan-dasar.html" class="btn btn-primary">
+                                        Baca <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                    <small class="text-muted">26 Jan 2025</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more latest articles here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer akan dimuat di sini -->
     <div id="footer-container"></div>
 
     <!-- Bootstrap JS -->

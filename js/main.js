@@ -1,33 +1,65 @@
 // Function to load HTML components
-async function loadComponent(filepath, elementId) {
+async function loadComponents() {
     try {
-        const response = await fetch(filepath);
-        const html = await response.text();
-        document.getElementById(elementId).innerHTML = html;
+        // Load Navbar
+        const navbarResponse = await fetch('/components/navbar.html');
+        if (!navbarResponse.ok) throw new Error('Error loading navbar');
+        const navbarHtml = await navbarResponse.text();
+        document.getElementById('navbar-container').innerHTML = navbarHtml;
+
+        // Load Footer
+        const footerResponse = await fetch('/components/footer.html');
+        if (!footerResponse.ok) throw new Error('Error loading footer');
+        const footerHtml = await footerResponse.text();
+        document.getElementById('footer-container').innerHTML = footerHtml;
+
+        // Initialize Bootstrap components
+        initializeBootstrapComponents();
+        
+        // Initialize theme
+        initThemeToggle();
+        
+        // Initialize other features
+        initScrollAnimation();
     } catch (error) {
-        console.error(`Error loading ${filepath}:`, error);
+        console.error('Error loading components:', error);
+        showErrorMessage();
     }
 }
 
-// Load all components when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-    loadComponent('/components/navbar.html', 'navbar-container');
-    loadComponent('/components/footer.html', 'footer-container');
-});
+// Initialize Bootstrap components
+function initializeBootstrapComponents() {
+    // Initialize dropdowns
+    const dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+    const dropdownList = [...dropdownElementList].map(dropdownToggleEl => {
+        return new bootstrap.Dropdown(dropdownToggleEl);
+    });
+}
 
+// Show error message if components fail to load
+function showErrorMessage() {
+    const errorHtml = `
+        <div class="alert alert-danger m-3" role="alert">
+            <h4 class="alert-heading">Error Loading Components</h4>
+            <p>Sorry, we couldn't load some parts of the page. Please try refreshing.</p>
+        </div>
+    `;
+    
+    document.getElementById('navbar-container').innerHTML = errorHtml;
+    document.getElementById('footer-container').innerHTML = errorHtml;
+}
 
-// Dark mode toggle
+// Initialize theme toggle
 function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
+
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const currentTheme = localStorage.getItem('theme') || 
+                        (prefersDarkScheme.matches ? 'dark' : 'light');
     
-    // Set initial theme
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-    } else if (prefersDarkScheme.matches) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-    }
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
 
     themeToggle.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -39,22 +71,19 @@ function initThemeToggle() {
     });
 }
 
-// Reading progress bar
-function initReadingProgress() {
-    const progressBar = document.querySelector('.progress-bar');
-    if (progressBar) {
-        window.addEventListener('scroll', () => {
-            const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = (window.scrollY / windowHeight) * 100;
-            progressBar.style.width = `${progress}%`;
-        });
+// Update theme icon
+function updateThemeIcon(theme) {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
+
+    const icon = themeToggle.querySelector('i');
+    if (icon) {
+        icon.className = theme === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
     }
 }
 
-// Animate elements on scroll
+// Initialize scroll animations
 function initScrollAnimation() {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -63,35 +92,20 @@ function initScrollAnimation() {
         });
     });
 
-    elements.forEach(element => observer.observe(element));
-}
-
-// Update navbar on scroll
-function initScrollNavbar() {
-    const navbar = document.querySelector('.navbar');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            navbar.classList.add('navbar-hidden');
-        } else {
-            navbar.classList.remove('navbar-hidden');
-        }
-        
-        lastScroll = currentScroll;
+    document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+        observer.observe(element);
     });
 }
 
-// Initialize all features
-document.addEventListener('DOMContentLoaded', () => {
-    initThemeToggle();
-    initReadingProgress();
-    initScrollAnimation();
-    initScrollNavbar();
-    
-    // Load components
-    loadComponent('/components/navbar.html', 'navbar-container');
-    loadComponent('/components/footer.html', 'footer-container');
+// Load all components when DOM is ready
+document.addEventListener('DOMContentLoaded', loadComponents);
+
+// Add scroll event listener for progress bar
+window.addEventListener('scroll', () => {
+    const progressBar = document.querySelector('.progress-bar');
+    if (progressBar) {
+        const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        progressBar.style.width = `${scrolled}%`;
+    }
 });

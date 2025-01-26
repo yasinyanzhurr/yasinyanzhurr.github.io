@@ -1,61 +1,79 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="/">Blog Pembelajaran</a>
+        <a class="navbar-brand" href="/">
+            <i class="bi bi-book"></i> Blog Pembelajaran
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
         <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="ms-auto">
-                <button id="theme-toggle" class="theme-toggle btn">
-                    <i class="bi bi-sun-fill"></i>
-                </button>
-            </div>    
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Beranda</a>
-                </li>
                 <!-- Matematika Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/matematika/" id="matematikaDropdown" role="button" data-bs-toggle="dropdown">
-                        Matematika
+                    <a class="nav-link dropdown-toggle" href="/articles/matematika/" id="matematikaDropdown" 
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-calculator"></i> Matematika
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/matematika/sd/">SD</a></li>
-                        <li><a class="dropdown-item" href="/matematika/smp/">SMP</a></li>
-                        <li><a class="dropdown-item" href="/matematika/sma/">SMA</a></li>
-                        <li><a class="dropdown-item" href="/matematika/lanjut/">Lanjut</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="matematikaDropdown">
+                        <li><a class="dropdown-item" href="/articles/matematika/sd/">SD</a></li>
+                        <li><a class="dropdown-item" href="/articles/matematika/smp/">SMP</a></li>
+                        <li><a class="dropdown-item" href="/articles/matematika/sma/">SMA</a></li>
+                        <li><a class="dropdown-item" href="/articles/matematika/lanjut/">Lanjut</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/matematika/">Semua Artikel Matematika</a></li>
+                        <li><a class="dropdown-item" href="/articles/matematika/">Semua Artikel Matematika</a></li>
                     </ul>
                 </li>
+
                 <!-- Bahasa Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/bahasa/" id="bahasaDropdown" role="button" data-bs-toggle="dropdown">
-                        Bahasa
+                    <a class="nav-link dropdown-toggle" href="/articles/bahasa/" id="bahasaDropdown" 
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-translate"></i> Bahasa
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/bahasa/inggris/">Bahasa Inggris</a></li>
-                        <li><a class="dropdown-item" href="/bahasa/arab/">Bahasa Arab</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="bahasaDropdown">
+                        <li><a class="dropdown-item" href="/articles/bahasa/inggris/">Bahasa Inggris</a></li>
+                        <li><a class="dropdown-item" href="/articles/bahasa/arab/">Bahasa Arab</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/bahasa/">Semua Artikel Bahasa</a></li>
+                        <li><a class="dropdown-item" href="/articles/bahasa/">Semua Artikel Bahasa</a></li>
                     </ul>
                 </li>
+
                 <!-- Teknologi Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/teknologi/" id="teknologiDropdown" role="button" data-bs-toggle="dropdown">
-                        Teknologi
+                    <a class="nav-link dropdown-toggle" href="/articles/teknologi/" id="teknologiDropdown" 
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-laptop"></i> Teknologi
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/teknologi/frontend/">Developer Frontend</a></li>
-                        <li><a class="dropdown-item" href="/teknologi/backend/">Developer Backend</a></li>
-                        <li><a class="dropdown-item" href="/teknologi/office/">Microsoft Office</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="teknologiDropdown">
+                        <li><a class="dropdown-item" href="/articles/teknologi/frontend/">Frontend Development</a></li>
+                        <li><a class="dropdown-item" href="/articles/teknologi/backend/">Backend Development</a></li>
+                        <li><a class="dropdown-item" href="/articles/teknologi/office/">Microsoft Office</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/teknologi/">Semua Artikel Teknologi</a></li>
+                        <li><a class="dropdown-item" href="/articles/teknologi/">Semua Artikel Teknologi</a></li>
                     </ul>
                 </li>
             </ul>
+
+            <!-- Search and Theme Toggle -->
+            <div class="ms-auto d-flex align-items-center">
+                <!-- Search Form -->
+                <form class="d-flex me-2">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Cari artikel..." aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="theme-toggle btn btn-link">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
         </div>
     </div>
 </nav>
-
+<!-- Progress Bar -->
 <div class="progress-bar"></div>
