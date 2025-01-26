@@ -1,200 +1,61 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <!-- Meta tags untuk SEO dan responsive design -->
     <meta charset="UTF-8">
-    <!-- Viewport untuk memastikan tampilan responsif di berbagai perangkat -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta description untuk SEO, penting untuk membuat deskripsi yang menarik dan informatif -->
-    <meta name="description"
-        content="Blog pribadi Yasin - Berbagi pengalaman dan pengetahuan tentang pendidikan matematika, teknologi, bahasa Arab & Inggris, serta bisnis.">
-    <!-- Keywords untuk membantu SEO -->
-    <meta name="keywords"
-        content="guru matematika, teknologi pendidikan, TOEFL, bahasa arab, nahwu shorof, bisnis cafe, pengalaman bisnis">
-    <meta name="author" content="Yasin">
-    <!-- Open Graph tags untuk tampilan yang lebih baik saat dibagikan di media sosial -->
-    <meta property="og:title" content="Yasin's Blog | Berbagi Pengalaman & Pengetahuan">
-    <meta property="og:description"
-        content="Blog pribadi Yasin - Berbagi pengalaman dan pengetahuan tentang pendidikan matematika, teknologi, bahasa Arab & Inggris, serta bisnis.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yasinyanzhurr.github.io">
-
-    <!-- Judul halaman yang akan muncul di tab browser -->
-    <title>Yasin's Blog | Berbagi Pengalaman & Pengetahuan</title>
-
-    <!-- Font dari Google Fonts - Poppins untuk heading dan Merriweather untuk body text -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome untuk ikon - versi 6.0.0 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- File CSS kustom -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Tambahkan di bagian head -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=[YOUR-GA-ID]"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', '[YOUR-GA-ID]');
-    </script>
+    <title>Blog Matematika</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
 <body>
-    <!-- Progress bar untuk menunjukkan progress scroll halaman -->
-    <div class="progress-bar" id="progressBar"></div>
+    <!-- Navbar container -->
+    <div id="navbar-container"></div>
 
-    <!-- Header dengan navigasi fixed -->
-    <header>
-        <!-- Modifikasi pada bagian navbar -->
-        <nav class="navbar">
-            <div class="nav-brand">
-                <h1>Yasin's Blog</h1>
-            </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-menu">
-                <li><a href="#beranda">Beranda</a></li>
-                <li class="dropdown">
-                    <a href="#matematika">Matematika <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#matematika-sd">SD</a></li>
-                        <li><a href="#matematika-smp">SMP</a></li>
-                        <li><a href="#matematika-sma">SMA</a></li>
-                        <li><a href="#matematika-lanjut">Matematika Lanjut</a></li>
-                    </ul>
-                </li>
-                <li><a href="#teknologi">Teknologi</a></li>
-                <li class="dropdown">
-                    <a href="#bahasa">Bahasa <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#bahasa-inggris">Bahasa Inggris</a></li>
-                        <li><a href="#bahasa-arab">Bahasa Arab</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#wirausaha">Wirausaha <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#pemula">Pengusaha Pemula</a></li>
-                        <li><a href="#akuntansi">Akuntansi Dasar</a></li>
-                    </ul>
-                </li>
-                <li><a href="#produk">Produk Digital</a></li>
-            </ul>
-            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-                <!-- <i class="fas fa-moon"></i> -->
-            </button>
-        </nav>
-    </header>
-
-    <!-- Hero Section - Bagian utama halaman -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Selamat Datang di Blog Saya</h1>
-            <p>Berbagi pengalaman dan pengetahuan dari seorang guru matematika yang passionate dalam teknologi, bahasa,
-                dan bisnis.</p>
-        </div>
-    </section>
-
-    <!-- Konten Utama -->
-    <main>
-        <!-- Kategori Matematika -->
-        <section id="matematika" class="category-section">
-            <div class="section-header">
-                <h2>Matematika</h2>
-                <p>Eksplorasi dunia matematika dari tingkat dasar hingga lanjut</p>
-            </div>
-
-            <!-- Sub-kategori Matematika SD -->
-            <section id="matematika-sd" class="sub-category">
-                <h3>Matematika SD</h3>
-                <div class="article-grid">
-                    <article class="article-card">
-                        <a href="blog/matematika/sd/pecahan-dasar.html" target="_blank" class="article-link">
-                            <div class="article-image">
-                                <img src="images/matematika/sd/pecahan-dasar.jpg" alt="Belajar Pecahan" loading="lazy">
-                            </div>
-
-                            <div class="article-content">
-                                <span class="article-category">Matematika SD</span>
-                                <h3>Belajar Pecahan dengan Cara Menyenangkan</h3>
-                                <p class="article-excerpt">
-                                    Mari belajar pecahan dengan metode yang menyenangkan menggunakan contoh kehidupan
-                                    sehari-hari...
-                                </p>
-                                <div class="article-meta">
-                                    <span class="date"><i class="far fa-calendar"></i> 21 Jan 2025</span>
-                                    <span class="read-time"><i class="far fa-clock"></i> 8 menit</span>
-                                </div>
-                            </div>
-
-                        </a>
-
-
-                    </article>
-                    <!-- Tambahkan artikel SD lainnya di sini -->
-                </div>
-            </section>
-
-            <!-- Struktur serupa untuk SMP, SMA, dan Matematika Lanjut -->
-        </section>
-
-        <!-- Kategori Bahasa -->
-        <section id="bahasa" class="category-section">
-            <!-- Sub-kategori Bahasa Inggris dan Arab -->
-        </section>
-
-        <!-- Kategori Wirausaha -->
-        <section id="wirausaha" class="category-section">
-            <!-- Sub-kategori Pengusaha Pemula dan Akuntansi -->
-        </section>
-
-        <!-- Kategori Produk Digital -->
-        <section id="produk" class="category-section">
-            <div class="section-header">
-                <h2>Produk Digital</h2>
-                <p>Koleksi produk digital berkualitas untuk pembelajaran</p>
-            </div>
-            <div class="product-grid">
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/product1.jpg" alt="Nama Produk" loading="lazy">
+    <!-- Main content -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8">
+                <article class="article-preview">
+                    <h2>Contoh Artikel Matematika</h2>
+                    <p class="text-muted">Ditulis pada: 2025-01-26</p>
+                    <div class="math-content">
+                        <p>
+                            Rumus kuadrat adalah salah satu rumus dasar dalam matematika:
+                            \[x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}\]
+                        </p>
                     </div>
-                    <div class="product-content">
-                        <h3>Nama Produk</h3>
-                        <p class="product-description">Deskripsi singkat produk...</p>
-                        <div class="product-price">
-                            <span class="price">Rp 99.000</span>
-                            <button class="buy-btn">Beli Sekarang</button>
-                        </div>
-                    </div>
+                    <a href="#" class="btn btn-primary">Baca selengkapnya</a>
                 </article>
-                <!-- Tambahkan produk lainnya di sini -->
             </div>
-        </section>
-    </main>
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <!-- Links media sosial -->
-            <div class="social-links">
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/yasinyanzhurr" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tentang Blog</h5>
+                        <p class="card-text">Blog ini berisi artikel-artikel matematika dengan penjelasan yang mudah dipahami.</p>
+                    </div>
+                </div>
             </div>
-            <!-- Copyright -->
-            <p>&copy; 2025 Yasin's Blog. All rights reserved.</p>
         </div>
-    </footer>
+    </div>
 
-    <!-- JavaScript -->
-    <script src="js/main.js" defer></script>
+    <!-- Footer container -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/main.js"></script>
 </body>
-
 </html>
