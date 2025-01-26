@@ -1,0 +1,286 @@
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* ============= PENGATURAN DASAR WEBSITE ============= */
+/* Mengatur semua elemen dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Pengaturan scroll yang halus */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============= PENGATURAN BODY ============= */
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Membuat footer selalu di bawah */
+main {
+  flex: 1;
+}
+
+/* ============= PENGATURAN CONTAINER ============= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* ============= PENGATURAN HERO SECTION ============= */
+.hero-section {
+  padding: 5rem 0;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--primary-yellow) 0%,
+    var(--secondary-yellow) 100%
+  );
+  color: var(--dark-gray);
+  border-radius: 0 0 50px 50px;
+  margin-bottom: 3rem;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ============= PENGATURAN KATEGORI ============= */
+.category-block {
+  margin-bottom: 4rem;
+}
+
+.category-block h2 {
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Garis kuning di bawah judul kategori */
+.category-block h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-yellow);
+}
+
+/* ============= PENGATURAN KARTU ARTIKEL ============= */
+.article-card {
+  height: 100%;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.article-card .card-body {
+  padding: 1.5rem;
+}
+
+.article-card .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Badge kategori */
+.category-badge {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+/* ============= PENGATURAN SIDEBAR ============= */
+.sidebar {
+  position: sticky;
+  top: 2rem;
+}
+
+.sidebar .nav-link {
+  color: var(--text-primary);
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  color: var(--primary-yellow);
+  padding-left: 1rem;
+}
+
+/* ============= PENGATURAN TABLE OF CONTENTS ============= */
+.toc {
+  border-left: 3px solid var(--primary-yellow);
+  padding-left: 1rem;
+}
+
+.toc .nav-link {
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+/* ============= PENGATURAN BREADCRUMB ============= */
+.breadcrumb {
+  background: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.breadcrumb-item a {
+  color: var(--primary-yellow);
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  color: var(--text-secondary);
+}
+
+/* ============= PENGATURAN FOOTER ============= */
+.footer {
+  background-color: var(--bg-secondary);
+  padding: 3rem 0;
+  margin-top: 5rem;
+}
+
+.footer-title {
+  color: var(--primary-yellow);
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary-yellow);
+}
+
+/* ============= PENGATURAN RESPONSIF ============= */
+/* Untuk tablet */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 0;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .navbar .input-group {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+/* Untuk smartphone */
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 2rem 0;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .category-block h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============= PENGATURAN AKSESIBILITAS ============= */
+/* Fokus yang lebih jelas untuk navigasi keyboard */
+a:focus,
+button:focus {
+  outline: 3px solid var(--primary-yellow);
+  outline-offset: 2px;
+}
+
+/* Teks yang dipilih */
+::selection {
+  background-color: var(--primary-yellow);
+  color: var(--dark-gray);
+}
+
+/* ============= PENGATURAN LOADING ============= */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--bg-secondary);
+  border-top: 5px solid var(--primary-yellow);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============= PENGATURAN SCROLLBAR ============= */
+/* Untuk browser yang mendukung scrollbar custom */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-yellow);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-yellow);
+}

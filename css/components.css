@@ -1,0 +1,54 @@
+/**
+ * components.css
+ * UI Components styles
+ * 
+ * @author: yyanzhur
+ * @created: 2025-01-26 12:58:24
+ */
+
+/* Article Cards */
+.article-card {
+  height: 100%;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Category Badge */
+.category-badge {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.breadcrumb-item a {
+  color: var(--primary-yellow);
+  text-decoration: none;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--bg-secondary);
+  padding: 3rem 0;
+  margin-top: 5rem;
+}
+
+.footer-title {
+  color: var(--primary-yellow);
+  margin-bottom: 1.5rem;
+}
