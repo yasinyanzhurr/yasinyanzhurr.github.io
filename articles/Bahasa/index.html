@@ -22,7 +22,6 @@
     </head>
 <body>
     <div id="navbar-container"></div>
-    <div class="progress-bar"></div>
 
     <main>
         <div class="container mt-4">
@@ -109,7 +108,15 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="/js/main.js"></script>
+    <!-- Main Script -->
+    <script type="module" src="/js/main.js"></script>
+
+    <!-- Page Specific Script -->
+    <script type="module">
+        // Customize page-specific content
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add page-specific initialization here
+        });
+    </script>
 </body>
 </html>

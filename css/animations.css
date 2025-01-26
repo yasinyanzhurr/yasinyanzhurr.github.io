@@ -63,3 +63,51 @@
 .animate-fade-in {
   animation: fadeIn 0.5s ease forwards;
 }
+
+/* Slide In Animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes confetti {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  35% {
+    transform: rotate(360deg) translate(-200px, 200px);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 30px;
+  background: #ffd700;
+  top: 0;
+  opacity: 0;
+  animation: confetti 5s ease-in-out infinite;
+}
+
+.achievement-message {
+  animation: slideIn 0.5s ease-out;
+}

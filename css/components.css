@@ -52,3 +52,36 @@
   color: var(--primary-yellow);
   margin-bottom: 1.5rem;
 }
+
+.multiplication-grid {
+  display: inline-block;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.grid-container {
+  display: inline-grid;
+  gap: 4px;
+}
+
+.grid-row {
+  display: flex;
+  gap: 4px;
+  margin: 0.5rem 0;
+}
+
+.grid-cell {
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border-radius: 4px;
+  opacity: 0.7;
+}
+
+.dot {
+  display: inline-block;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}

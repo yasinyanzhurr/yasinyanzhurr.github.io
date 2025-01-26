@@ -1,0 +1,18 @@
+{
+    "articles": [
+        {
+            "title": "Belajar Penjumlahan yang Menyenangkan",
+            "excerpt": "Mari belajar penjumlahan dengan cara yang seru...",
+            "image": "/assets/images/math/addition.jpg",
+            "url": "/matematika/sd/penjumlahan/",
+            "subcategory": "SD"
+        },
+        {
+            "title": "Mengenal Bangun Ruang",
+            "excerpt": "Yuk kenali berbagai bentuk bangun ruang...",
+            "image": "/assets/images/math/geometry.jpg",
+            "url": "/matematika/sd/bangun-ruang/",
+            "subcategory": "SD"
+        }
+    ]
+}
