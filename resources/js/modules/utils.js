@@ -1,17 +1,11 @@
 /**
- * utils.js - Utility Functions Module
- * 
  * @file: utils.js
  * @description: Modul untuk fungsi-fungsi utilitas
  * @author: yyanzhur
- * @created: 2025-01-26 13:25:16
- * @last-modified: 2025-01-26 13:25:16
+ * @created: 2025-01-27 16:32:14
  */
 
-/**
- * Mendapatkan timestamp dalam format UTC
- * @returns {string} Timestamp dalam format YYYY-MM-DD HH:MM:SS
- */
+// Fungsi untuk mendapatkan timestamp dalam format UTC
 export function getFormattedUTCTimestamp() {
     const now = new Date();
     return now.toISOString()
@@ -19,12 +13,9 @@ export function getFormattedUTCTimestamp() {
               .replace(/\.\d+Z$/, '');
 }
 
-/**
- * Memformat timestamp untuk display
- * @param {string} timestamp - Timestamp yang akan diformat
- * @returns {string} Timestamp yang sudah diformat
- */
-export function formatTimestamp(timestamp) {
+
+// Fungsi untuk memformat timestamp untuk display
+function formatTimestamp(timestamp) {
     const date = new Date(timestamp);
     const options = {
         year: 'numeric',
@@ -36,12 +27,8 @@ export function formatTimestamp(timestamp) {
     return date.toLocaleDateString('id-ID', options);
 }
 
-/**
- * Menambahkan timestamp ke elemen
- * @param {string} elementId - ID elemen yang akan ditambahkan timestamp
- * @param {string} timestamp - Timestamp yang akan ditambahkan
- */
-export function addTimestampToElement(elementId, timestamp) {
+// Fungsi untuk menambahkan timestamp ke elemen
+function addTimestampToElement(elementId, timestamp) {
     const element = document.getElementById(elementId);
     if (element) {
         element.setAttribute('title', `Last updated: ${timestamp}`);
@@ -49,15 +36,15 @@ export function addTimestampToElement(elementId, timestamp) {
     }
 }
 
-/**
- * Menambahkan info author ke elemen
- * @param {string} elementId - ID elemen yang akan ditambahkan info author
- * @param {string} author - Nama author
- */
-export function addAuthorInfo(elementId, author) {
+// Fungsi untuk menambahkan info author
+function addAuthorInfo(elementId, author) {
     const element = document.getElementById(elementId);
     if (element) {
         element.setAttribute('title', `Created by: ${author}`);
         element.setAttribute('data-bs-toggle', 'tooltip');
     }
 }
+
+// Contoh penggunaan:
+// addTimestampToElement('last-updated', getFormattedUTCTimestamp());
+// addAuthorInfo('author-info', 'yyanzhur');

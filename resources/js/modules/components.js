@@ -1,17 +1,13 @@
 /**
- * components.js - UI Components Management Module
- * 
  * @file: components.js
- * @description: Modul untuk mengatur komponen UI dan Bootstrap
+ * @description: Modul untuk menangani komponen website
  * @author: yyanzhur
- * @created: 2025-01-26 13:46:41
+ * @created: 2025-01-27 16:32:14
  */
 
+import { initializeAll } from '../main.js';
 import { showLoadingError } from './loader.js';
 
-/**
- * Memuat komponen-komponen UI utama
- */
 export async function loadComponents() {
     try {
         await Promise.all([
@@ -25,9 +21,6 @@ export async function loadComponents() {
     }
 }
 
-/**
- * Memuat komponen individual
- */
 async function loadComponent(containerId, componentName) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -37,21 +30,4 @@ async function loadComponent(containerId, componentName) {
     
     const html = await response.text();
     container.innerHTML = html;
-}
-
-/**
- * Inisialisasi komponen-komponen Bootstrap
- */
-export function initializeBootstrapComponents() {
-    try {
-        // Initialize dropdowns
-        const dropdowns = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
-        dropdowns.map(dropdown => new bootstrap.Dropdown(dropdown));
-
-        // Initialize tooltips
-        const tooltips = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltips.map(tooltip => new bootstrap.Tooltip(tooltip));
-    } catch (error) {
-        console.error('Error initializing Bootstrap components:', error);
-    }
 }

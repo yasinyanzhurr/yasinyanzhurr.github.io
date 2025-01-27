@@ -1,50 +1,27 @@
 /**
- * theme.js - Theme Management Module
- * 
  * @file: theme.js
- * @description: Modul untuk mengatur tema gelap/terang website
+ * @description: Modul untuk menangani tema website
  * @author: yyanzhur
- * @created: 2025-01-26 13:25:16
- * @last-modified: 2025-01-26 13:25:16
+ * @created: 2025-01-27 16:32:14
  */
 
-import { CONFIG } from '../main.js';
+const THEME_KEY = 'theme';
 
-/**
- * Inisialisasi tema website
- * Memeriksa preferensi sistem dan localStorage untuk menentukan tema
- */
 export function initTheme() {
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    const savedTheme = localStorage.getItem(CONFIG.THEME_KEY);
+    const savedTheme = localStorage.getItem(THEME_KEY);
     const currentTheme = savedTheme || (prefersDarkScheme.matches ? 'dark' : 'light');
     
     applyTheme(currentTheme);
     setupThemeToggle();
-
-    // Listener untuk perubahan preferensi sistem
-    prefersDarkScheme.addEventListener('change', (e) => {
-        if (!localStorage.getItem(CONFIG.THEME_KEY)) {
-            applyTheme(e.matches ? 'dark' : 'light');
-        }
-    });
 }
 
-/**
- * Menerapkan tema ke website
- * @param {string} theme - Tema yang akan diterapkan ('dark' atau 'light')
- */
-export function applyTheme(theme) {
+function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     updateThemeIcon(theme);
-    localStorage.setItem(CONFIG.THEME_KEY, theme);
-    console.log(`Theme applied: ${theme}`);
+    localStorage.setItem(THEME_KEY, theme);
 }
 
-/**
- * Memperbarui ikon tema
- * @param {string} theme - Tema saat ini
- */
 function updateThemeIcon(theme) {
     const themeIcon = document.getElementById('theme-icon');
     if (themeIcon) {
@@ -52,9 +29,6 @@ function updateThemeIcon(theme) {
     }
 }
 
-/**
- * Mengatur tombol toggle tema
- */
 function setupThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
     if (!themeToggle) return;

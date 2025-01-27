@@ -1,152 +1,65 @@
 /**
- * main.js
- * File JavaScript utama untuk Blog Pembelajaran
- * 
+ * @file: main.js
+ * @description: File utama yang mengimpor dan menginisialisasi semua modul
  * @author: yyanzhur
- * @created: 2025-01-27 05:28:17
+ * @created: 2025-01-27 16:32:14
  */
 
 // Import semua modul yang diperlukan
-
-import { loadCategories } from './modules/category.js';
-import { initializeNavigation, generateBreadcrumbs } from './modules/navigation.js';
-import { initializeQuiz } from './modules/quiz.js';
-import { handlePreloader, showLoadingError } from './modules/loader.js';
-import { loadComponents, initializeBootstrapComponents } from './modules/components.js';
+import { initScrollAnimations } from './modules/animations.js';
 import { initTheme } from './modules/theme.js';
-import { initScrollAnimations, setupProgressBar } from './modules/animations.js';
-/**
- * Fungsi untuk memuat komponen HTML
- * @param {string} path - Path ke file komponen
- * @returns {Promise<string>} - Promise berisi konten HTML
- */
-async function fetchComponent(path) {
-    try {
-        const response = await fetch(path);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        return await response.text();
-    } catch (error) {
-        console.error(`Error fetching component from ${path}:`, error);
-        showLoadingError(error);
-        return '';
-    }
-}
+import { handlePreloader, showLoadingError } from './modules/loader.js';
+import { initializeNavigation } from './modules/navigation.js';
+import { loadComponents } from './modules/components.js';
+import { initializeBootstrapComponents } from './modules/bootstrap-init.js';
+import { initializeCategory } from './modules/category.js';
+import { initializeArticle } from './modules/article.js'; 
+import { getFormattedUTCTimestamp } from './modules/utils.js';
 
-/**
- * Fungsi untuk memuat navbar
- */
-async function loadNavbar() {
-    const navbarContainer = document.getElementById('navbar-container');
-    if (navbarContainer) {
-        try {
-            const navbarContent = await fetchComponent('/components/navbar.html');
-            navbarContainer.innerHTML = navbarContent;
+
+// ====== FUNGSI INISIALISASI ======
+export function initializeAll() {
+    try {
+        // Inisialisasi komponen dasar
+        initTheme();
+        initScrollAnimations();
+        initializeNavigation();
+        initializeBootstrapComponents();
+        initializeCategory();
+
+        // Deteksi halaman saat ini dan inisialisasi modul yang sesuai
+        const currentPath = window.location.pathname;
             
-            // Setup navigasi setelah navbar dimuat
-            initializeNavigation();
-            setupThemeToggle();
-        } catch (error) {
-            console.error('Error loading navbar:', error);
-            showLoadingError(error);
+        if (currentPath.includes('/articles/')) {
+            if (currentPath.includes('/content/')) {
+                // Jika di halaman artikel konten
+                initializeArticle();
+            } else {
+                // Jika di halaman kategori
+                initializeCategory();
+            }
         }
-    }
-}
 
-/**
- * Fungsi untuk memuat footer
- */
-async function loadFooter() {
-    const footerContainer = document.getElementById('footer-container');
-    if (footerContainer) {
-        try {
-            const footerContent = await fetchComponent('/components/footer.html');
-            footerContainer.innerHTML = footerContent;
-        } catch (error) {
-            console.error('Error loading footer:', error);
-            showLoadingError(error);
-        }
-    }
-}
-
-/**
- * Setup scroll animations
- */
-function setupScrollAnimations() {
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        },
-        { threshold: 0.1 }
-    );
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
-    });
-}
-
-/**
- * Fungsi untuk menginisialisasi fitur berdasarkan halaman saat ini
- */
-function initializePageFeatures() {
-    const path = window.location.pathname;
-
-    // Inisialisasi fitur quiz jika berada di halaman konten
-    if (path.includes('/content/')) {
-        initializeQuiz();
-    }
-
-    // Load kategori jika berada di halaman utama atau halaman kategori
-    if (path === '/' || path.includes('/articles/')) {
-        loadCategories();
-    }
-}
-
-/**
- * Fungsi inisialisasi utama
- */
-async function initializeApp() {
-    try {
-        // Tampilkan preloader
-        handlePreloader(true);
-
-        // Load komponen utama
-        await Promise.all([
-            loadNavbar(),
-            loadFooter()
-        ]);
-
-        // Setup fitur-fitur
-        setupAnimations();
-        setupScrollAnimations();
-        generateBreadcrumbs();
-        initializePageFeatures();
-
-        // Setup event listener untuk scroll yang di-debounce
-        window.addEventListener('scroll', debounce(() => {
-            // Handle scroll events
-        }, 100));
-
-        console.log('Application initialized successfully at:', formatDate(new Date()));
-        
+        console.log('All modules initialized successfully');
     } catch (error) {
-        console.error('Error initializing application:', error);
+        console.error('Error during initialization:', error);
         showLoadingError(error);
-    } finally {
-        // Sembunyikan preloader
-        handlePreloader(false);
     }
 }
 
-// Mulai aplikasi ketika DOM sudah siap
-document.addEventListener('DOMContentLoaded', initializeApp);
+// ====== EVENT LISTENERS ======
+document.addEventListener('DOMContentLoaded', loadComponents);
+window.addEventListener('load', handlePreloader);
+window.addEventListener('error', e => showLoadingError(e.error));
 
-// Export fungsi-fungsi yang mungkin dibutuhkan oleh modul lain
-export {
-    fetchComponent,
-    initializeApp,
-    setupScrollAnimations
-};
+// ====== PROGRESS BAR ======
+window.addEventListener('scroll', () => {
+    const progressBar = document.querySelector('.progress-bar');
+    if (progressBar) {
+        const scrolled = (window.scrollY / 
+            (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        progressBar.style.width = `${scrolled}%`;
+    }
+});
+
+

@@ -1,25 +1,17 @@
 /**
- * navigation.js - Navigation Management Module
- * 
  * @file: navigation.js
- * @description: Modul untuk mengatur navigasi, breadcrumb, dan smooth scroll
+ * @description: Modul untuk menangani navigasi dan breadcrumbs
  * @author: yyanzhur
- * @created: 2025-01-26 13:25:16
- * @last-modified: 2025-01-26 13:25:16
+ * @created: 2025-01-27 16:32:14
  */
 
-/**
- * Inisialisasi semua fungsi navigasi
- */
 export function initializeNavigation() {
     setupNavLinks();
     setupSmoothScroll();
     generateBreadcrumbs();
 }
 
-/**
- * Mengatur status aktif pada link navigasi
- */
+
 function setupNavLinks() {
     const navLinks = document.querySelectorAll('.nav-link');
     const currentPath = window.location.pathname;
@@ -31,9 +23,6 @@ function setupNavLinks() {
     });
 }
 
-/**
- * Mengatur smooth scroll untuk anchor links
- */
 function setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -48,14 +37,13 @@ function setupSmoothScroll() {
     });
 }
 
-/**
- * Menghasilkan breadcrumb berdasarkan path URL
- */
+// ====== FUNGSI BREADCRUMB ======
 function generateBreadcrumbs() {
     const container = document.querySelector('.breadcrumb-container');
     if (!container) return;
 
     const path = window.location.pathname;
+    // Hapus 'articles/' dari path dan bersihkan multiple slashes
     const cleanPath = path.replace(/^\/|\/$/g, '')
                          .replace('articles/', '')
                          .replace(/\/+/g, '/');
@@ -73,16 +61,12 @@ function generateBreadcrumbs() {
     container.innerHTML = breadcrumbHtml;
 }
 
-/**
- * Menghasilkan item-item breadcrumb
- * @param {string[]} pathArray - Array path URL yang sudah dibersihkan
- * @returns {string} HTML string untuk item-item breadcrumb
- */
 function generateBreadcrumbItems(pathArray) {
     let currentPath = '';
     return pathArray
-        .filter(item => item && item !== 'articles')
+        .filter(item => item && item !== 'articles') // Filter out 'articles' and empty items
         .map((item, index, arr) => {
+            // Tambahkan 'articles' ke path untuk mempertahankan struktur URL yang benar
             currentPath += `/articles/${item}`;
             const isLast = index === arr.length - 1;
             const title = getPageTitle(item);
@@ -94,11 +78,6 @@ function generateBreadcrumbItems(pathArray) {
         .join('');
 }
 
-/**
- * Mendapatkan judul halaman dari slug URL
- * @param {string} slug - Slug URL
- * @returns {string} Judul halaman yang sesuai
- */
 function getPageTitle(slug) {
     const titles = {
         'matematika': 'Matematika',

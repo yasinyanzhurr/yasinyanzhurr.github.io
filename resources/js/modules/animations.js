@@ -1,16 +1,10 @@
 /**
- * animations.js - Animations Management Module
- * 
- * @file: animations.js
- * @description: Modul untuk mengatur animasi dan efek scroll
+ * @file: animation.js
+ * @description: Modul untuk menangani animasi
  * @author: yyanzhur
- * @created: 2025-01-26 13:25:16
- * @last-modified: 2025-01-26 13:25:16
+ * @created: 2025-01-27 16:32:14
  */
 
-/**
- * Inisialisasi animasi scroll
- */
 export function initScrollAnimations() {
     const observer = new IntersectionObserver(
         (entries) => {
@@ -25,19 +19,5 @@ export function initScrollAnimations() {
 
     document.querySelectorAll('.animate-on-scroll').forEach(element => {
         observer.observe(element);
-    });
-}
-
-/**
- * Setup progress bar untuk scroll
- */
-export function setupProgressBar() {
-    window.addEventListener('scroll', () => {
-        const progressBar = document.querySelector('.progress-bar');
-        if (progressBar) {
-            const scrolled = (window.scrollY / 
-                (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            progressBar.style.width = `${scrolled}%`;
-        }
     });
 }

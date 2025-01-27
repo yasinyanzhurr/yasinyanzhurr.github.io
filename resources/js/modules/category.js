@@ -1,65 +1,163 @@
 /**
- * category.js
- * File untuk mengatur tampilan halaman kategori
- * 
+ * @file: category.js
+ * @description: File untuk mengatur tampilan halaman kategori
  * @author: yyanzhur
- * @created: 2025-01-26 14:23:59
+ * @created: 2025-01-27 17:11:37
+ * @last-modified: Auto-updated on save
  */
+
+
+// Export fungsi initializeCategory
+export function initializeCategory() {
+    const manager = new CategoryManager();
+    manager.renderCategory();
+}
 
 class CategoryManager {
     constructor() {
         this.categoryId = this.getCategoryFromUrl();
+        this.isLoading = false;
+        this.initializeAOS(); // Inisialisasi AOS jika digunakan
     }
 
-    // Mendapatkan nama kategori dari URL
+    // Mendapatkan nama kategori dari URL dengan validasi
     getCategoryFromUrl() {
-        const path = window.location.pathname.split('/');
-        return path[1] || 'matematika'; // Default ke matematika jika tidak ada
-    }
-
-    // Memuat data kategori
-    async loadCategoryData() {
         try {
-            const response = await fetch(`/api/categories/${this.categoryId}.json`);
-            if (!response.ok) throw new Error('Kategori tidak ditemukan');
-            return await response.json();
+            const path = window.location.pathname.split('/');
+            const category = path.find(segment => 
+                ['matematika', 'bahasa', 'teknologi'].includes(segment.toLowerCase())
+            );
+            return category?.toLowerCase() || 'matematika';
         } catch (error) {
-            console.error('Error loading category:', error);
-            this.showError('Gagal memuat data kategori');
+            console.error('Error parsing category from URL:', error);
+            return 'matematika';
         }
     }
 
-    // Memuat artikel terbaru
+    // Inisialisasi AOS (Animate On Scroll)
+    initializeAOS() {
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        }
+    }
+    
+
+    // Memuat data kategori dengan loading state
+    async loadCategoryData() {
+        try {
+            this.setLoading(true);
+            const response = await fetch(`/api/categories/${this.categoryId}.json`);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            const data = await response.json();
+            this.validateCategoryData(data); // Validasi data
+            return data;
+        } catch (error) {
+            console.error('Error loading category:', error);
+            this.showError('Gagal memuat data kategori');
+            return null;
+        } finally {
+            this.setLoading(false);
+        }
+    }
+
+
+    // Validasi data kategori
+    validateCategoryData(data) {
+        const requiredFields = ['title', 'description', 'background', 'subCategories', 'stats'];
+        const missingFields = requiredFields.filter(field => !data[field]);
+        
+        if (missingFields.length > 0) {
+            throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
+        }
+    }
+
+    // Set loading state
+    setLoading(isLoading) {
+        this.isLoading = isLoading;
+        const loader = document.getElementById('preloader');
+        if (loader) {
+            loader.style.display = isLoading ? 'flex' : 'none';
+        }
+    }
+
+    // Memuat artikel terbaru dengan cache
     async loadLatestArticles() {
+        const cacheKey = `articles_${this.categoryId}_${new Date().toDateString()}`;
+        
+        // Cek cache
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+            return JSON.parse(cached);
+        }
+
         try {
             const response = await fetch(`/api/articles/${this.categoryId}/latest.json`);
             if (!response.ok) throw new Error('Artikel tidak ditemukan');
-            return await response.json();
+            const data = await response.json();
+            
+            // Simpan ke cache
+            localStorage.setItem(cacheKey, JSON.stringify(data));
+            return data;
         } catch (error) {
             console.error('Error loading articles:', error);
             return { articles: [] };
         }
     }
 
-    // Render halaman kategori
+    // Render halaman kategori dengan error handling
     async renderCategory() {
-        const data = await this.loadCategoryData();
-        if (!data) return;
+        try {
+            const data = await this.loadCategoryData();
+            if (!data) return;
 
-        this.updatePageTitle(data);
-        this.renderHeroSection(data);
-        this.renderSubCategories(data.subCategories);
-        this.renderStats(data.stats);
-        
-        const articles = await this.loadLatestArticles();
-        this.renderLatestArticles(articles.articles);
+            await Promise.all([
+                this.updatePageTitle(data),
+                this.renderHeroSection(data),
+                this.renderSubCategories(data.subCategories),
+                this.renderStats(data.stats)
+            ]);
+
+            const articles = await this.loadLatestArticles();
+            this.renderLatestArticles(articles.articles);
+
+            // Refresh AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        } catch (error) {
+            console.error('Error rendering category:', error);
+            this.showError('Terjadi kesalahan saat menampilkan konten');
+        }
     }
 
-    // Update judul halaman
+    // Update judul halaman dengan metadata
     updatePageTitle(data) {
         document.title = `${data.title} - Platform Pembelajaran`;
-        const metaDesc = document.querySelector('meta[name="description"]');
-        if (metaDesc) metaDesc.content = data.description;
+        
+        // Update meta tags
+        const metaTags = {
+            'description': data.description,
+            'keywords': data.keywords?.join(', ') || '',
+            'og:title': `${data.title} - Platform Pembelajaran`,
+            'og:description': data.description,
+            'og:image': data.background
+        };
+
+        Object.entries(metaTags).forEach(([name, content]) => {
+            let meta = document.querySelector(`meta[name="${name}"]`) ||
+                      document.querySelector(`meta[property="${name}"]`);
+            
+            if (!meta) {
+                meta = document.createElement('meta');
+                meta.setAttribute(name.includes('og:') ? 'property' : 'name', name);
+                document.head.appendChild(meta);
+            }
+            meta.setAttribute('content', content);
+        });
     }
 
     // Render bagian hero
@@ -184,8 +282,40 @@ class CategoryManager {
     }
 }
 
-// Inisialisasi saat halaman dimuat
+// Inisialisasi dengan error handling
+let categoryManager;
+
 document.addEventListener('DOMContentLoaded', () => {
-    const manager = new CategoryManager();
-    manager.renderCategory();
+    try {
+        categoryManager = new CategoryManager();
+        categoryManager.renderCategory();
+    } catch (error) {
+        console.error('Failed to initialize CategoryManager:', error);
+        // Tampilkan pesan error yang user-friendly
+        const container = document.querySelector('main');
+        if (container) {
+            container.innerHTML = `
+                <div class="container my-5">
+                    <div class="alert alert-danger">
+                        <h4>Error</h4>
+                        <p>Maaf, terjadi kesalahan saat memuat halaman. Silakan coba lagi.</p>
+                        <button onclick="location.reload()" 
+                                class="btn btn-outline-danger btn-sm">
+                            Refresh Halaman
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+    }
 });
+
+// Cleanup saat halaman unload
+window.addEventListener('unload', () => {
+    if (categoryManager) {
+        categoryManager.cleanup();
+    }
+});
+
+// Export untuk penggunaan dengan module
+export { CategoryManager };

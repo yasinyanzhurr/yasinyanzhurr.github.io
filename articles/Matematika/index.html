@@ -19,108 +19,9 @@
     <!-- AOS - Animate On Scroll -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="/resources/css/style.css" rel="stylesheet">
 
-    <style>
-        /* Category-specific styles */
-        .hero-section {
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
 
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: white;
-        }
-
-        .category-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .category-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-yellow);
-        }
-
-        .article-card {
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .article-card img {
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .article-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .stats-section {
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--secondary-yellow) 100%);
-            padding: 4rem 0;
-            color: var(--dark-gray);
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .learning-path {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .path-item {
-            padding: 1rem;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .path-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--primary-yellow);
-        }
-    </style>
 </head>
 <body>
     <!-- Preloader -->
@@ -227,9 +128,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <!-- Main Script -->
-    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/resources/js/main.js"></script>
 
     <!-- Category Script -->
-    <script type="module" src="/js/modules/category.js"></script>
+    <script type="module" src="/resources/js/modules/category.js"></script>
 </body>
 </html>
