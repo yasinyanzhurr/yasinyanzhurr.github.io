@@ -3,14 +3,11 @@
  * Entry point untuk Platform Pembelajaran
  * 
  * @file: main.js
- * @description: File utama yang menginisialisasi semua modul dan fungsi website
  * @author: yyanzhur
- * @created: 2025-01-26 18:46:36
- * @last-modified: 2025-01-26 18:46:36
+ * @created: 2025-01-27 03:37:00
+ * @last-modified: 2025-01-27 03:37:00
  */
 
-// Import statements di awal file
-import { Category } from './modules/category.js';  // atau import Category from './modules/category.js';
 import { QuizManager } from './modules/quiz.js';
 import { handlePreloader, showLoadingError } from './modules/loader.js';
 import { loadComponents, initializeBootstrapComponents } from './modules/components.js';
@@ -18,13 +15,13 @@ import { initTheme } from './modules/theme.js';
 import { initScrollAnimations, setupProgressBar } from './modules/animations.js';
 import { initializeNavigation } from './modules/navigation.js';
 
-// Konstanta Global
-export const CONFIG = {
+export const CONFIG = Object.freeze({
     THEME_KEY: 'theme',
     ANIMATION_DELAY: 500,
     AUTHOR: 'yyanzhur',
-    VERSION: '1.0.0'
-};
+    VERSION: '1.0.0',
+    DEBUG: true
+});
 
 // State tracking
 let componentsLoaded = false;
@@ -33,12 +30,13 @@ let initializationComplete = false;
 /**
  * Initialize Quiz
  */
-function initializeQuiz() {
+async function initializeQuiz() {
     try {
         const quizContainer = document.getElementById('quiz-container');
         if (quizContainer) {
-            window.quiz = new QuizManager('perkalian-dasar-1');
-            window.quiz.init();
+            const quiz = new QuizManager('perkalian-dasar-1');
+            await quiz.init();
+            window.quiz = quiz;
         }
     } catch (error) {
         console.error('Error initializing quiz:', error);
@@ -59,8 +57,9 @@ function setupErrorBoundary() {
             error: error
         });
         
-        if (document.getElementById('quiz-container')) {
-            document.getElementById('quiz-container').innerHTML = `
+        const quizContainer = document.getElementById('quiz-container');
+        if (quizContainer) {
+            quizContainer.innerHTML = `
                 <div class="alert alert-danger">
                     <h4>Oops! Terjadi Kesalahan</h4>
                     <p>Mohon maaf, terjadi kesalahan teknis. Silakan muat ulang halaman.</p>
@@ -70,7 +69,6 @@ function setupErrorBoundary() {
                 </div>
             `;
         }
-        
         return false;
     };
 }
@@ -78,17 +76,17 @@ function setupErrorBoundary() {
 /**
  * Initialize all components
  */
-function initializeAll() {
+async function initializeAll() {
     try {
         initTheme();
         initScrollAnimations();
         initializeNavigation();
         initializeBootstrapComponents();
         setupProgressBar();
-        initializeQuiz(); // Menambahkan inisialisasi quiz
+        await initializeQuiz();
         
         initializationComplete = true;
-        console.log('All components initialized successfully');
+        CONFIG.DEBUG && console.log('All components initialized successfully');
     } catch (error) {
         console.error('Error during initialization:', error);
         showLoadingError(error);
@@ -99,11 +97,11 @@ function initializeAll() {
  * Handle DOMContentLoaded event
  */
 async function handleDOMContentLoaded() {
-    console.log('DOM Content Loaded - Starting initialization...');
+    CONFIG.DEBUG && console.log('DOM Content Loaded - Starting initialization...');
     try {
         await loadComponents();
         componentsLoaded = true;
-        initializeAll();
+        await initializeAll();
     } catch (error) {
         console.error('Error during initialization:', error);
         showLoadingError(error);
@@ -114,7 +112,7 @@ async function handleDOMContentLoaded() {
  * Handle Window load event
  */
 function handleWindowLoad() {
-    console.log('Window Loaded - Handling preloader...');
+    CONFIG.DEBUG && console.log('Window Loaded - Handling preloader...');
     handlePreloader();
 }
 
@@ -127,7 +125,7 @@ function handleGlobalError(event) {
 }
 
 /**
- * Fungsi utama untuk inisialisasi aplikasi
+ * Initialize application
  */
 function initializeApp() {
     setupErrorBoundary();

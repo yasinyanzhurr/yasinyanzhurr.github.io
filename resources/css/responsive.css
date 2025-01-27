@@ -1,0 +1,47 @@
+/**
+ * responsive.css
+ * Media queries and responsive styles
+ * 
+ * @author: yyanzhur
+ * @created: 2025-01-26 12:58:24
+ */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 0;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .navbar .input-group {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .sidebar {
+    position: static;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 2rem 0;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .category-block h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer {
+    text-align: center;
+  }
+}

@@ -1,0 +1,47 @@
+{
+    "quizId": "perkalian-dasar-1",
+    "title": "Quiz Perkalian Dasar",
+    "description": "Uji pemahaman tentang perkalian angka 1-10",
+    "duration": 15,
+    "questions": [
+        {
+            "id": 1,
+            "type": "multiple_choice",
+            "question": "Berapakah hasil dari 3 × 4?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "10"
+                },
+                {
+                    "id": "b",
+                    "text": "12"
+                },
+                {
+                    "id": "c",
+                    "text": "14"
+                },
+                {
+                    "id": "d",
+                    "text": "16"
+                }
+            ],
+            "correctAnswer": "b",
+            "points": 10
+        },
+        {
+            "id": 2,
+            "type": "true_false",
+            "question": "5 × 2 sama dengan 2 × 5",
+            "correctAnswer": true,
+            "points": 5
+        },
+        {
+            "id": 3,
+            "type": "fill_blank",
+            "question": "4 × ___ = 20",
+            "correctAnswer": "5",
+            "points": 15
+        }
+    ]
+}

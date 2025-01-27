@@ -18,6 +18,8 @@ export async function loadComponents() {
             loadComponent('navbar-container', 'navbar'),
             loadComponent('footer-container', 'footer')
         ]);
+
+        initializeAll();
     } catch (error) {
         showLoadingError(error);
     }

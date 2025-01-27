@@ -1,0 +1,41 @@
+/**
+ * style.css
+ * Main stylesheet untuk Platform Pembelajaran
+ * 
+ * @author: yyanzhur
+ * @created: 2025-01-26 12:58:24
+ * @last-modified: 2025-01-26 12:58:24
+ *
+ * Daftar Isi:
+ * 1. Import Files
+ * 2. Reset & Base
+ * 3. Layout
+ */
+
+/* 1. Import Files */
+@import "theme.css"; /* Tema dan variabel */
+@import "layout.css"; /* Layout dasar */
+@import "components.css"; /* Komponen UI */
+@import "animations.css"; /* Animasi */
+@import "responsive.css"; /* Media Queries */
+@import "article.css"; /* Styles untuk artikel */
+@import "quiz.css"; /* Styles untuk quiz */
+
+/* 2. Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

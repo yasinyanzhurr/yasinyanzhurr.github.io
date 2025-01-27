@@ -1,0 +1,52 @@
+{
+    "articles": [
+        {
+            "id": "penjumlahan-dasar",
+            "title": "Belajar Penjumlahan Dasar",
+            "excerpt": "Mari belajar penjumlahan angka 1-100 dengan cara yang menyenangkan",
+            "image": "/assets/images/math/addition.jpg",
+            "author": "yyanzhur",
+            "date": "2025-01-26",
+            "category": "matematika",
+            "subcategory": "sd",
+            "level": "Dasar",
+            "duration": "15 menit",
+            "url": "/matematika/sd/penjumlahan-dasar/",
+            "tags": ["penjumlahan", "dasar", "SD kelas 1"]
+        },
+        {
+            "id": "pengurangan-dasar",
+            "title": "Mengenal Pengurangan",
+            "excerpt": "Belajar pengurangan angka dengan metode yang mudah dipahami",
+            "image": "/assets/images/math/subtraction.jpg",
+            "author": "yyanzhur",
+            "date": "2025-01-26",
+            "category": "matematika",
+            "subcategory": "sd",
+            "level": "Dasar",
+            "duration": "20 menit",
+            "url": "/matematika/sd/pengurangan-dasar/",
+            "tags": ["pengurangan", "dasar", "SD kelas 1"]
+        },
+        {
+            "id": "perkalian-dasar",
+            "title": "Belajar Perkalian Dasar",
+            "excerpt": "Mari belajar perkalian angka 1-10 dengan cara yang menyenangkan dan mudah dipahami",
+            "image": "/assets/images/math/multiplication.jpg",
+            "author": "yyanzhur",
+            "date": "2025-01-26",
+            "category": "matematika",
+            "subcategory": "sd",
+            "level": "Dasar",
+            "duration": "25 menit",
+            "url": "/articles/matematika/sd/content/perkaliandasar/",
+            "tags": ["perkalian", "dasar", "SD kelas 2"]
+        }
+    
+    ],
+    "pagination": {
+        "currentPage": 1,
+        "totalPages": 5,
+        "totalArticles": 25
+    }
+}
