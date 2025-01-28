@@ -214,8 +214,8 @@ class CategoryManager {
             <div class="col-md-6" data-aos="fade-up">
                 <div class="card article-card h-100">
                     <img src="${article.image}" 
-                         class="card-img-top" 
-                         alt="${article.title}">
+                        class="card-img-top" 
+                        alt="${article.title}">
                     <div class="card-body">
                         <div class="mb-2">
                             <span class="badge bg-primary">${article.subcategory}</span>
@@ -238,6 +238,37 @@ class CategoryManager {
             </div>
         `).join('');
     }
+
+    // renderLatestArticles(articles) {
+    //     const container = document.getElementById('latestArticlesContainer');
+    //     if (!container) return;
+    
+    //     container.innerHTML = articles.map(article => `
+    //         <div class="col-md-6" data-aos="fade-up">
+    //             <div class="card article-card h-100">
+    //                 <div class="card-img-wrapper">
+    //                     <img src="${article.image}" 
+    //                          class="card-img-top" 
+    //                          alt="${article.title}"
+    //                          onerror="this.onerror=null; this.src='/resources/images/placeholder.jpg';"
+    //                          loading="lazy">
+    //                 </div>
+    //                 <div class="card-body">
+    //                     <div class="mb-2">
+    //                         <span class="badge bg-primary">${article.subcategory}</span>
+    //                     </div>
+    //                     <h3 class="card-title h5">${article.title}</h3>
+    //                     <p class="card-text small">${article.excerpt}</p>
+    //                 </div>
+    //                 <div class="card-footer bg-transparent border-0">
+    //                     <a href="${article.url}" class="btn btn-link px-0">
+    //                         Baca Selengkapnya
+    //                     </a>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     `).join('');
+    // }
 
     // Render statistik
     renderStats(stats) {

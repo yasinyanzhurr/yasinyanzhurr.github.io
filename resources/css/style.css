@@ -12,13 +12,13 @@
  * 3. Layout
  */
 
-/* 1. Import Files */
-@import "theme.css"; /* Tema dan variabel */
+/* 1. Import Files - Update urutan */
+@import "theme.css"; /* Tema dan variabel HARUS pertama */
 @import "layout.css"; /* Layout dasar */
 @import "components.css"; /* Komponen UI */
+@import "article.css"; /* Styles untuk artikel SETELAH components */
 @import "animations.css"; /* Animasi */
-@import "responsive.css"; /* Media Queries */
-@import "article.css"; /* Styles untuk artikel */
+@import "responsive.css"; /* Media Queries HARUS terakhir */
 @import "quiz.css"; /* Styles untuk quiz */
 
 /* 2. Reset & Base */

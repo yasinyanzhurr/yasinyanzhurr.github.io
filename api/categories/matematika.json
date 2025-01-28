@@ -3,7 +3,7 @@
     "title": "Matematika",
     "description": "Belajar matematika dari dasar hingga lanjutan dengan cara yang menyenangkan",
     "icon": "bi-calculator",
-    "background": "/assets/images/math-bg.jpg",
+    "background": "/articles/Matematika/math-bg.jpg",
     "subCategories": [
         {
             "id": "sd",

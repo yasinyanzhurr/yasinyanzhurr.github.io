@@ -1,0 +1,46 @@
+{
+    "id": "matematika",
+    "title": "Matematika",
+    "description": "Belajar matematika dari dasar hingga lanjutan dengan cara yang menyenangkan",
+    "icon": "bi-calculator",
+    "background": "/articles/Matematika/math-bg.jpg",
+    "subCategories": [
+        {
+            "id": "sd",
+            "title": "Matematika SD",
+            "description": "Materi dasar matematika untuk tingkat Sekolah Dasar",
+            "icon": "bi-1-circle",
+            "color": "primary",
+            "totalArticles": 25
+        },
+        {
+            "id": "smp",
+            "title": "Matematika SMP",
+            "description": "Materi matematika untuk tingkat Sekolah Menengah Pertama",
+            "icon": "bi-2-circle",
+            "color": "success",
+            "totalArticles": 30
+        },
+        {
+            "id": "sma",
+            "title": "Matematika SMA",
+            "description": "Materi matematika untuk tingkat Sekolah Menengah Atas",
+            "icon": "bi-3-circle",
+            "color": "warning",
+            "totalArticles": 35
+        },
+        {
+            "id": "lanjut",
+            "title": "Matematika Lanjut",
+            "description": "Materi matematika tingkat lanjut untuk persiapan kuliah",
+            "icon": "bi-4-circle",
+            "color": "danger",
+            "totalArticles": 20
+        }
+    ],
+    "stats": {
+        "totalArticles": 110,
+        "totalStudents": 89,
+        "totalExercises": 80
+    }
+}

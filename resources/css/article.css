@@ -1,3 +1,235 @@
+/**
+ * @file: article.css
+ * @description: Styles untuk halaman artikel dan kategori
+ * @author: yyanzhur
+ * @created: 2025-01-28 07:37:51
+ */
+
+/* Category Hero Section */
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  /* background: linear-gradient(
+    135deg,
+    var(--primary-yellow) 0%,
+    var(--secondary-yellow) 100%
+  ); */
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+  margin-bottom: 3rem;
+  border-radius: 0 0 50px 50px;
+  /* color: var(
+    --dark-gray
+  ); Menggunakan warna teks gelap karena background terang */
+}
+
+/* Overlay gelap untuk hero section */
+/* Hapus overlay gelap karena sudah menggunakan background terang */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  /* color: var(--dark-gray); Sesuaikan warna teks */
+}
+
+.hero-content h1 {
+  color: var(--light-text, #fff);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content .lead {
+  color: var(--light-text, #fff);
+  font-size: 1.25rem;
+  opacity: 0.9;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Category Cards */
+.category-block {
+  margin-bottom: 4rem;
+}
+
+.category-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 100%;
+  background: var(--card-bg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-yellow);
+}
+
+/* Latest Articles Section */
+.article-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  background: var(--card-bg);
+}
+
+.article-card img {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.article-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Statistics Section */
+.stats-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-yellow) 0%,
+    var(--secondary-yellow) 100%
+  );
+  padding: 4rem 0;
+  color: var(--dark-gray);
+  margin: 3rem 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Category Badges */
+.category-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 2rem;
+}
+
+.sidebar .card {
+  border: none;
+  border-radius: 15px;
+  background: var(--card-bg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Learning Path */
+.learning-path {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.path-item {
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.path-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--primary-yellow);
+  border-radius: 3px;
+}
+
+/* Dark Theme Adjustments */
+[data-theme="dark"] .category-card,
+[data-theme="dark"] .article-card,
+[data-theme="dark"] .sidebar .card,
+[data-theme="dark"] .path-item {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .stats-section {
+  color: var(--text-primary);
+}
+
+/* Dark theme adjustments */
+/* [data-theme="dark"] .hero-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-yellow) 0%,
+    var(--secondary-yellow) 100%
+  );
+}
+
+[data-theme="dark"] .hero-content,
+[data-theme="dark"] .hero-content h1,
+[data-theme="dark"] .hero-content .lead {
+  color: var(--dark-gray); /* Tetap gelap bahkan dalam mode gelap 
+} */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 0;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .sidebar {
+    position: static;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 2rem 0;
+    border-radius: 0 0 25px 25px;
+  }
+
+  .category-card,
+  .article-card {
+    margin-bottom: 1rem;
+  }
+}
+
 .article-content {
   max-width: 800px;
   margin: 0 auto;
