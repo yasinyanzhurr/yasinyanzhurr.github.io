@@ -1,0 +1,56 @@
+{
+    "id": "Teknologi",
+    "title": "Teknologi",
+    "description": "Belajar memahami bahasa Developer Frontend dan Backend dengan cara yang menyenangkan",
+    "icon": "bi-calculator",
+    "background": "/articles/Teknologi/tech-bg.jpg",
+    "subCategories": [
+        {
+            "id": "Frontend1",
+            "title": "Frontend Dasar",
+            "description": "Memahami materi HTML, CSS, dan Javascript Dasar",
+            "icon": "bi-1-circle",
+            "color": "primary",
+            "totalArticles": 25
+        },
+        {
+            "id": "frontend2",
+            "title": "Frontend Framework",
+            "description": "Memahami framework CSS dan Javascript",
+            "icon": "bi-2-circle",
+            "color": "success",
+            "totalArticles": 30
+        },
+        {
+            "id": "database1",
+            "title": "Database Dasar",
+            "description": "Memahami Materi Dasar Database dengan MySQL",
+            "icon": "bi-3-circle",
+            "color": "warning",
+            "totalArticles": 35
+        },
+
+        {
+            "id": "backend1",
+            "title": "PHP Dasar",
+            "description": "Memahami bahasa PHP Dasar",
+            "icon": "bi-4-circle",
+            "color": "danger",
+            "totalArticles": 20
+        },
+
+        {
+            "id": "backend2",
+            "title": "Laravel",
+            "description": "Memahami Framework Laravel 11",
+            "icon": "bi-4-circle",
+            "color": "danger",
+            "totalArticles": 25
+        }
+    ],
+    "stats": {
+        "totalArticles": 110,
+        "totalStudents": 89,
+        "totalExercises": 80
+    }
+}
