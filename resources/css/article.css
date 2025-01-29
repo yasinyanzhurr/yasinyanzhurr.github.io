@@ -24,9 +24,14 @@
   ); Menggunakan warna teks gelap karena background terang */
 }
 
+/* Style khusus untuk hero section di halaman utama
+.home-hero-section {
+  color: var(--dark-gray);
+} */
+
 /* Overlay gelap untuk hero section */
 /* Hapus overlay gelap karena sudah menggunakan background terang */
-.hero-section::before {
+.category-hero-section::before {
   content: "";
   position: absolute;
   top: 0;
@@ -37,20 +42,20 @@
   z-index: 1;
 }
 
-.hero-content {
+.category-hero-section .hero-content {
   position: relative;
   z-index: 2;
   /* color: var(--dark-gray); Sesuaikan warna teks */
 }
 
-.hero-content h1 {
+.category-hero-section h1 {
   color: var(--light-text, #fff);
   font-weight: 600;
   margin-bottom: 1rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.hero-content .lead {
+.category-hero-section .lead {
   color: var(--light-text, #fff);
   font-size: 1.25rem;
   opacity: 0.9;
