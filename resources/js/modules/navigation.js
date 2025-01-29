@@ -46,6 +46,8 @@ function generateBreadcrumbs() {
     // Hapus 'articles/' dari path dan bersihkan multiple slashes
     const cleanPath = path.replace(/^\/|\/$/g, '')
                          .replace('articles/', '')
+                         .replace(/\/+/g, '/')
+                         .replace('content/', '')
                          .replace(/\/+/g, '/');
     const pathArray = cleanPath.split('/');
     
