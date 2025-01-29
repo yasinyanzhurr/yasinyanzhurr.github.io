@@ -325,5 +325,12 @@
 
 .solution-steps ol {
   margin: 0;
-  padding-left: 1.5rem;
+  list-style: none; /* Menghilangkan nomor default */
+  padding-left: 20px; /* Memberikan indentasi */
+  counter-reset: item; /* Reset counter untuk custom numbering jika diperlukan nanti */
+}
+
+.solution-steps ol li {
+  position: relative;
+  margin-bottom: 10px; /* Spacing antar item */
 }
