@@ -111,3 +111,141 @@
 .achievement-message {
   animation: slideIn 0.5s ease-out;
 }
+
+/* Animasi fade untuk jawaban */
+#answers {
+  transition: opacity 0.3s ease;
+}
+
+#answers.show {
+  opacity: 1;
+}
+
+/* Animasi scroll */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-on-scroll.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover effect untuk tombol */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style untuk Tabel Perkalian */
+
+/* Animasi fade untuk tabel */
+#tabel {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#tabel.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Style dasar tabel */
+.multiplication-table {
+  margin-bottom: 0;
+  background-color: #333;
+  border: 2px solid white;
+}
+
+/* Header tabel (hitam-kuning) */
+.table-header {
+  background-color: #ffd700 !important;
+  color: #333 !important;
+  font-weight: bold;
+  border: 1px solid white !important;
+  text-align: center;
+}
+
+/* Style untuk sel tabel */
+.table-cell {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+  padding: 12px;
+}
+
+/* Hover effect (kuning) */
+.table-cell:hover {
+  background-color: #ffd700 !important;
+  color: #333 !important;
+  cursor: pointer;
+  transform: scale(1.05);
+  position: relative;
+  z-index: 1;
+}
+
+/* Warna untuk angka kelipatan */
+/* .multiple-of-2 {
+  color: #2e8b57; /* Sea Green - untuk kelipatan 2 
+  font-weight: 500;
+} */
+
+/* .multiple-of-3 {
+  color: #4169e1; /* Royal Blue - untuk kelipatan 3 
+  font-weight: 600;
+} */
+
+.multiple-of-5 {
+  color: rgb(187, 75, 10); /* Dark Red - untuk kelipatan 5 */
+  font-weight: 700;
+}
+
+/* Prioritas warna untuk angka yang merupakan kelipatan beberapa angka */
+/* .multiple-of-2.multiple-of-3 {
+  color: #9932cc; /* Dark Orchid - untuk kelipatan 6 
+  font-weight: 600;
+}
+
+.multiple-of-2.multiple-of-5 {
+  color: #ff4500; /* Orange Red - untuk kelipatan 10 
+  font-weight: 700;
+}
+
+.multiple-of-3.multiple-of-5 {
+  color: #008b8b; /* Dark Cyan - untuk kelipatan 15 
+  font-weight: 700;
+} */
+
+/* Hover tetap konsisten */
+.table-cell:hover {
+  background-color: #ffd700 !important;
+  color: #333 !important;
+  cursor: pointer;
+  transform: scale(1.05);
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive table */
+.table-responsive {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    font-size: 14px;
+  }
+  .table-cell {
+    padding: 8px;
+  }
+}
